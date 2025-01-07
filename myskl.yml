@@ -1,0 +1,12 @@
+name: myskl
+dependencies:
+  - python>=3.5
+  - pip
+  - pip:
+    - flask
+    - flask-mysql
+    - flask-cors
+    - flask-restful
+    - flask-wtf
+    - mysql-connector-python
+    - flask-sqlalchemy
