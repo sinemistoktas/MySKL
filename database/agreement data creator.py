@@ -34,7 +34,7 @@ for _ in range(num_agreements):
     agr_date = generate_random_datetime()  # Agreement creation time
     start_time = agr_date + timedelta(hours=random.randint(0, 3))  # Start time 0-3 hours after creation
     end_time = start_time + timedelta(hours=random.randint(1, 2))  # End time 1-2 hours after start
-    agr_rate = round(random.uniform(*ratings_range), 1)  # Rating between 1 and 5
+    agr_rate = random.randint(*ratings_range)  # Rating between 1 and 5 as an integer
     
     agreements.append([rator_id, ratee_id, table_id, agr_date, start_time, end_time, agr_rate])
 
