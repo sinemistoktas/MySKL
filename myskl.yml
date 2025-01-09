@@ -10,3 +10,5 @@ dependencies:
     - flask-wtf
     - mysql-connector-python
     - flask-sqlalchemy
+    - pandas
+    - matplotlib
