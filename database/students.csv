@@ -1,501 +1,501 @@
-StudentID,S_name,Major,Sex,Rating,Level,xp
-1,Atalay Polat,Fizik,Male,2.5,2,70
-2,Eren Aksoy,Medya,Male,3.0,39,35
-3,İbrahim Koç,Hukuk,Male,1.8,19,25
-4,Mehmet Kaya,İşletme,Male,0.8,7,60
-5,Ceren Toktaş,Makine Mühendisliği,Female,4.4,14,90
-6,Duygu Koç,Matematik,Female,4.4,26,80
-7,Sibel Erdem,Fizik,Female,3.3,5,15
-8,Mehmet Şahin,Biyoloji,Male,1.6,7,15
-9,İpek Kaya,Medya,Female,3.3,28,60
-10,Berfin Erdem,Medya,Female,3.1,39,75
-11,Furkan Erdem,Makine Mühendisliği,Male,3.6,5,90
-12,Eda Aydın,Medya,Female,0.7,22,75
-13,Osman Polat,Fizik,Male,1.0,19,15
-14,Ahmet Çelik,Biyoloji,Male,0.8,9,45
-15,Ece Şahin,Makine Mühendisliği,Female,0.9,4,0
-16,Turan Şahin,Matematik,Male,2.4,21,45
-17,Ece Yılmaz,Hukuk,Female,4.6,16,80
-18,Elif Koç,Psikoloji,Female,2.9,48,85
-19,Selin Yılmaz,Fizik,Female,3.8,6,10
-20,Ali Demir,Fizik,Male,1.1,37,40
-21,Yasemin Toktaş,Medya,Female,1.1,6,85
-22,Emine Erdem,Fizik,Female,1.4,36,20
-23,Havva Altun,İşletme,Female,4.9,28,5
-24,Ceren Şahin,Psikoloji,Female,2.7,6,5
-25,Arin Toktaş,Hukuk,Other,4.3,33,65
-26,Duygu Toktaş,Matematik,Female,1.2,20,5
-27,Kaan Toktaş,Matematik,Male,0.3,8,80
-28,Mehmet Şahin,Fizik,Male,2.5,27,0
-29,Havva Çetin,Bilgisayar Mühendisliği,Female,4.6,34,60
-30,Ece Çetin,İşletme,Female,0.8,10,45
-31,Ozan Öztürk,Psikoloji,Other,0.8,25,50
-32,Selin Aydın,Biyoloji,Female,3.9,44,30
-33,Oğuz Çelik,Medya,Male,4.3,38,35
-34,Mehmet Çelik,Makine Mühendisliği,Male,3.2,12,0
-35,Eren Öztürk,Biyoloji,Male,4.2,4,10
-36,Eda Çetin,Matematik,Female,4.0,4,60
-37,Murat Erdem,Fizik,Male,4.1,8,85
-38,Büşra Yılmaz,Matematik,Female,3.7,5,75
-39,Ozan Yılmaz,Matematik,Other,1.1,5,75
-40,Osman Koç,Matematik,Male,1.7,37,80
-41,Ozan Çelik,Biyoloji,Other,4.4,30,55
-42,Yusuf Aksoy,Hukuk,Male,3.8,9,65
-43,Ahmet Şahin,Biyoloji,Male,2.0,4,15
-44,Havva Toktaş,Medya,Female,2.5,7,15
-45,Selin Güneş,Makine Mühendisliği,Female,4.0,18,5
-46,Elif Polat,Hukuk,Female,4.8,17,85
-47,Murat Aksoy,Psikoloji,Male,4.3,2,85
-48,Havva Toktaş,Makine Mühendisliği,Female,1.7,21,60
-49,Duygu Altun,İşletme,Female,1.7,19,25
-50,Eda Güneş,Makine Mühendisliği,Female,3.8,8,50
-51,Ahmet Polat,Medya,Male,2.1,22,80
-52,Hatice Toktaş,Biyoloji,Female,3.1,2,65
-53,Berfin Aksoy,Fizik,Female,3.5,44,20
-54,Yusuf Güneş,Biyoloji,Male,2.2,14,40
-55,Atalay Yılmaz,Fizik,Male,1.8,2,35
-56,Hasan Çetin,Biyoloji,Male,0.9,4,35
-57,Mustafa Çelik,Bilgisayar Mühendisliği,Male,4.3,31,85
-58,Sibel Erdem,Psikoloji,Female,4.2,26,20
-59,Eda Çetin,Biyoloji,Female,4.8,37,80
-60,Evren Altun,Medya,Other,0.8,41,65
-61,Cem Aksoy,Hukuk,Male,1.2,21,10
-62,Hasan Erdem,Biyoloji,Male,3.2,43,60
-63,Yusuf Aksoy,Makine Mühendisliği,Male,2.5,29,30
-64,Gül Erdem,Medya,Female,4.0,6,60
-65,Berfin Çetin,Biyoloji,Female,3.0,1,20
-66,Büşra Kaya,Psikoloji,Female,4.3,46,5
-67,Beren Yılmaz,Matematik,Female,3.0,36,95
-68,Hatice Aydın,Bilgisayar Mühendisliği,Female,2.2,1,50
-69,Turan Çelik,Bilgisayar Mühendisliği,Male,1.5,1,35
-70,Emine Toktaş,Bilgisayar Mühendisliği,Female,2.7,24,95
-71,Selin Yılmaz,Hukuk,Female,3.3,32,0
-72,Elif Öztürk,Bilgisayar Mühendisliği,Female,4.3,5,50
-73,Uğur Çetin,Fizik,Male,4.3,21,25
-74,İbrahim Aksoy,Psikoloji,Male,3.1,37,80
-75,Berfin Çelik,Biyoloji,Female,4.8,2,60
-76,Hüseyin Demir,Hukuk,Male,3.1,20,65
-77,Nur Yılmaz,Bilgisayar Mühendisliği,Female,2.8,47,35
-78,Ayşe Koç,Makine Mühendisliği,Female,3.5,16,50
-79,Merve Çetin,Medya,Female,3.6,4,15
-80,Uğur Toktaş,Medya,Male,3.0,2,55
-81,Selin Şahin,Hukuk,Female,4.5,48,45
-82,Furkan Altun,Psikoloji,Male,1.6,43,60
-83,Cem Kaya,Biyoloji,Male,3.8,4,15
-84,Ege Toktaş,Bilgisayar Mühendisliği,Male,2.5,5,85
-85,Yıldız Polat,Biyoloji,Other,2.4,2,70
-86,Sibel Yılmaz,Biyoloji,Female,3.8,39,50
-87,İbrahim Öztürk,Hukuk,Male,4.4,46,95
-88,Yasemin Aydın,Biyoloji,Female,3.0,2,15
-89,Ozan Erdem,İşletme,Other,1.6,3,60
-90,İpek Çetin,Biyoloji,Female,4.4,30,45
-91,Merve Şahin,Biyoloji,Female,3.2,16,45
-92,Elif Erdem,Medya,Female,4.1,48,90
-93,Ahmet Toktaş,Psikoloji,Male,2.5,47,35
-94,Deniz Çetin,Matematik,Other,3.6,34,90
-95,Yasemin Çelik,Psikoloji,Female,4.0,17,5
-96,Nur Demir,Bilgisayar Mühendisliği,Female,3.6,25,90
-97,Ali Erdem,Fizik,Male,1.9,21,75
-98,Hatice Demir,İşletme,Female,2.4,9,35
-99,Büşra Güneş,Fizik,Female,2.4,27,10
-100,Ege Aydın,Biyoloji,Male,1.2,9,0
-101,Sinemis Güneş,Psikoloji,Female,3.3,18,30
-102,Berk Toktaş,Hukuk,Male,4.6,6,60
-103,Osman Güneş,Medya,Male,4.2,1,60
-104,Ege Çelik,Bilgisayar Mühendisliği,Male,3.5,49,40
-105,Ali Demir,Biyoloji,Male,3.5,4,45
-106,Fatma Demir,Medya,Female,4.4,8,0
-107,Selim Aydın,Makine Mühendisliği,Male,3.6,20,10
-108,Hatice Güneş,İşletme,Female,4.0,25,15
-109,Dilara Aksoy,Makine Mühendisliği,Female,3.5,24,10
-110,İpek Altun,Makine Mühendisliği,Female,1.0,38,55
-111,Mustafa Altun,Makine Mühendisliği,Male,4.5,4,90
-112,Osman Öztürk,Psikoloji,Male,2.2,1,60
-113,İbrahim Çetin,Psikoloji,Male,1.6,8,50
-114,Murat Güneş,Fizik,Male,3.5,35,55
-115,Hasan Polat,Medya,Male,0.7,39,20
-116,Yusuf Kaya,Makine Mühendisliği,Male,4.6,17,50
-117,Atalay Erdem,Fizik,Male,2.7,17,90
-118,Utku Erdem,Makine Mühendisliği,Other,3.2,14,10
-119,Nur Kaya,Bilgisayar Mühendisliği,Female,1.5,1,5
-120,İpek Demir,Psikoloji,Female,4.0,31,60
-121,Yusuf Şahin,Matematik,Male,3.2,9,40
-122,Selin Kaya,Psikoloji,Female,4.3,9,50
-123,Ayşe Öztürk,Fizik,Female,3.1,42,80
-124,Selim Çelik,Hukuk,Male,4.4,25,0
-125,Selim Yılmaz,Hukuk,Male,1.6,9,15
-126,Uğur Çetin,Biyoloji,Male,1.4,13,0
-127,Eren Koç,Matematik,Male,3.2,46,30
-128,Kaan Polat,Matematik,Male,3.6,3,45
-129,Emine Aydın,Fizik,Female,3.9,8,75
-130,Hasan Erdem,Hukuk,Male,1.9,6,90
-131,Atalay Çelik,Matematik,Male,1.6,37,85
-132,Ceren Demir,Makine Mühendisliği,Female,1.9,33,45
-133,Ece Altun,Medya,Female,2.6,10,30
-134,Mustafa Toktaş,Medya,Male,2.3,15,60
-135,Oğuz Demir,Biyoloji,Male,4.4,7,20
-136,Murat Öztürk,Medya,Male,1.3,28,70
-137,Büşra Çetin,Makine Mühendisliği,Female,4.3,5,20
-138,Elif Yılmaz,Biyoloji,Female,1.4,8,75
-139,Elif Yılmaz,Fizik,Female,3.7,35,50
-140,Fatma Polat,İşletme,Female,3.2,5,60
-141,Elif Aksoy,Hukuk,Female,2.0,48,40
-142,Sinemis Güneş,Fizik,Female,2.6,7,40
-143,Yusuf Polat,Biyoloji,Male,1.1,5,40
-144,Zeynep Toktaş,Hukuk,Female,3.7,10,40
-145,Berfin Güneş,Fizik,Female,3.7,1,70
-146,İbrahim Aydın,İşletme,Male,1.6,9,80
-147,Hüseyin Polat,Makine Mühendisliği,Male,4.0,49,55
-148,Yıldız Altun,Hukuk,Other,1.5,11,55
-149,Mustafa Koç,İşletme,Male,4.3,23,65
-150,Büşra Güneş,İşletme,Female,3.3,4,70
-151,Ege Aksoy,Bilgisayar Mühendisliği,Male,3.8,12,50
-152,Ceren Altun,Psikoloji,Female,3.6,46,0
-153,Ece Kaya,Medya,Female,4.1,1,65
-154,Oğuz Güneş,Fizik,Male,3.4,2,5
-155,Gül Çetin,Medya,Female,4.6,5,70
-156,Ece Aydın,Fizik,Female,1.1,42,45
-157,Uğur Çelik,Makine Mühendisliği,Male,2.7,48,55
-158,Ahmet Altun,Biyoloji,Male,2.7,50,70
-159,Fatma Toktaş,Hukuk,Female,1.6,9,15
-160,Emre Yılmaz,Matematik,Male,3.3,1,80
-161,Atalay Demir,Bilgisayar Mühendisliği,Male,0.3,4,80
-162,Eren Yılmaz,Makine Mühendisliği,Male,1.0,3,40
-163,Beren Demir,Biyoloji,Female,4.5,6,60
-164,Emine Yılmaz,Biyoloji,Female,3.2,42,85
-165,Beren Güneş,Medya,Female,3.5,4,40
-166,Nur Koç,Bilgisayar Mühendisliği,Female,4.5,47,90
-167,İpek Yılmaz,Bilgisayar Mühendisliği,Female,4.3,2,5
-168,Mustafa Polat,İşletme,Male,3.3,15,25
-169,Ayşe Demir,Medya,Female,1.9,5,30
-170,Kaan Öztürk,Matematik,Male,0.8,42,50
-171,Eda Çelik,Psikoloji,Female,3.0,6,40
-172,Mustafa Altun,Biyoloji,Male,3.6,16,95
-173,Ahmet Koç,Psikoloji,Male,2.2,2,45
-174,Sinemis Erdem,Bilgisayar Mühendisliği,Female,4.6,26,5
-175,Selim Aksoy,Hukuk,Male,2.3,41,30
-176,Kaan Kaya,Hukuk,Male,1.4,13,15
-177,Eren Demir,İşletme,Male,3.8,41,70
-178,Hüseyin Aksoy,Psikoloji,Male,4.5,3,70
-179,Ece Kaya,Psikoloji,Female,1.1,30,15
-180,Sibel Çetin,İşletme,Female,4.1,13,60
-181,Uğur Güneş,Fizik,Male,4.5,6,90
-182,Cem Altun,Matematik,Male,2.6,5,70
-183,İbrahim Kaya,Makine Mühendisliği,Male,0.5,3,0
-184,Turan Çelik,Bilgisayar Mühendisliği,Male,1.9,4,75
-185,Duygu Polat,Psikoloji,Female,4.6,10,65
-186,Zeynep Erdem,Medya,Female,4.2,31,50
-187,Ahmet Koç,Hukuk,Male,3.3,8,65
-188,Elif Yılmaz,Psikoloji,Female,4.1,25,40
-189,Berk Çelik,Medya,Male,2.5,2,45
-190,Emre Aydın,İşletme,Male,3.1,7,75
-191,Atalay Toktaş,Biyoloji,Male,3.8,9,40
-192,Sibel Şahin,İşletme,Female,2.1,29,65
-193,Hatice Güneş,Medya,Female,3.2,38,40
-194,Atalay Erdem,Makine Mühendisliği,Male,4.8,4,40
-195,Eren Güneş,Matematik,Male,2.0,6,15
-196,Ozan Toktaş,Medya,Other,3.3,19,0
-197,Turan Demir,Medya,Male,4.0,4,5
-198,Mustafa Koç,Bilgisayar Mühendisliği,Male,2.6,5,75
-199,Dilara Demir,Makine Mühendisliği,Female,1.7,50,45
-200,Sinemis Şahin,Hukuk,Female,4.5,18,0
-201,Gül Çelik,Makine Mühendisliği,Female,2.1,19,20
-202,Mustafa Aksoy,Biyoloji,Male,3.7,1,55
-203,Osman Yılmaz,Matematik,Male,3.3,28,20
-204,Yasemin Aydın,Matematik,Female,4.4,3,25
-205,Ayşe Koç,Medya,Female,2.0,8,10
-206,Ahmet Yılmaz,Medya,Male,3.1,10,35
-207,Dilara Polat,Psikoloji,Female,1.8,2,70
-208,Cem Demir,Psikoloji,Male,2.0,12,65
-209,Utku Demir,Bilgisayar Mühendisliği,Other,3.9,14,10
-210,Arin Toktaş,Biyoloji,Other,0.3,8,35
-211,Furkan Demir,Psikoloji,Male,4.7,10,5
-212,Kaan Güneş,İşletme,Male,3.1,49,30
-213,Kaan Aksoy,Fizik,Male,3.5,42,15
-214,Zeynep Kaya,Medya,Female,4.4,39,30
-215,Sibel Demir,Fizik,Female,4.4,7,75
-216,Duygu Kaya,Bilgisayar Mühendisliği,Female,3.3,8,5
-217,Eda Şahin,Makine Mühendisliği,Female,3.6,36,85
-218,İbrahim Polat,Bilgisayar Mühendisliği,Male,3.6,2,10
-219,Yasemin Şahin,İşletme,Female,3.7,10,5
-220,Mustafa Toktaş,Biyoloji,Male,4.7,31,65
-221,Uğur Öztürk,Hukuk,Male,4.0,11,0
-222,Gül Öztürk,Biyoloji,Female,2.6,3,15
-223,Yasemin Güneş,Fizik,Female,3.9,5,35
-224,Kaan Demir,Matematik,Male,2.5,26,60
-225,Beren Çelik,Matematik,Female,4.3,5,25
-226,Ayşe Aksoy,Medya,Female,2.5,8,50
-227,Berfin Demir,Biyoloji,Female,2.0,50,0
-228,Ahmet Güneş,Psikoloji,Male,3.8,32,90
-229,Beren Çetin,Hukuk,Female,2.5,7,70
-230,Cem Polat,İşletme,Male,2.2,2,45
-231,Eren Erdem,İşletme,Male,3.0,5,60
-232,Ozan Öztürk,Fizik,Other,4.0,47,60
-233,Büşra Çelik,Hukuk,Female,2.2,14,35
-234,Elif Demir,Hukuk,Female,3.8,22,20
-235,Ozan Şahin,İşletme,Other,3.4,49,60
-236,Berfin Polat,Bilgisayar Mühendisliği,Female,3.2,15,5
-237,İpek Kaya,Matematik,Female,4.2,17,60
-238,Berk Yılmaz,Medya,Male,4.7,14,30
-239,Furkan Polat,Medya,Male,4.8,2,70
-240,Murat Koç,Hukuk,Male,4.8,39,20
-241,Ayşe Kaya,Makine Mühendisliği,Female,2.3,6,25
-242,Utku Güneş,Medya,Other,4.2,48,20
-243,Büşra Aksoy,İşletme,Female,3.3,20,25
-244,Hatice Demir,Makine Mühendisliği,Female,4.2,14,50
-245,Sinemis Altun,Fizik,Female,4.0,10,95
-246,Osman Öztürk,Makine Mühendisliği,Male,4.1,7,40
-247,Sinemis Demir,Psikoloji,Female,3.2,21,95
-248,İbrahim Yılmaz,Fizik,Male,0.5,2,50
-249,Elif Aksoy,Biyoloji,Female,4.9,4,10
-250,Arin Toktaş,Bilgisayar Mühendisliği,Other,4.3,10,5
-251,İpek Aksoy,Matematik,Female,3.4,12,25
-252,Ece Koç,Bilgisayar Mühendisliği,Female,4.0,4,50
-253,Turan Altun,Hukuk,Male,2.7,26,50
-254,Zeynep Aydın,Bilgisayar Mühendisliği,Female,0.1,17,90
-255,Dilara Çelik,Psikoloji,Female,3.5,14,65
-256,Ayşe Kaya,Psikoloji,Female,3.0,29,5
-257,Duygu Yılmaz,Matematik,Female,2.4,8,35
-258,Elif Kaya,Psikoloji,Female,2.9,41,55
-259,Atalay Erdem,Fizik,Male,4.6,3,35
-260,Beren Altun,Bilgisayar Mühendisliği,Female,3.3,35,50
-261,Dilara Polat,Makine Mühendisliği,Female,1.3,1,55
-262,Yusuf Öztürk,Makine Mühendisliği,Male,3.0,9,45
-263,Havva Koç,Bilgisayar Mühendisliği,Female,4.5,3,45
-264,Elif Yılmaz,Biyoloji,Female,3.9,12,5
-265,Emine Koç,Fizik,Female,4.6,38,25
-266,Yıldız Kaya,Psikoloji,Other,4.6,24,65
-267,Ayşe Çelik,Makine Mühendisliği,Female,4.4,10,65
-268,Havva Aydın,Makine Mühendisliği,Female,3.1,7,65
-269,Osman Koç,Psikoloji,Male,3.5,15,90
-270,Büşra Erdem,Psikoloji,Female,2.7,6,25
-271,Fatma Polat,İşletme,Female,2.8,41,65
-272,Deniz Demir,Makine Mühendisliği,Other,3.3,22,45
-273,Oğuz Güneş,Makine Mühendisliği,Male,3.4,12,5
-274,Selim Şahin,Matematik,Male,1.9,1,50
-275,Havva Aksoy,Bilgisayar Mühendisliği,Female,2.3,2,60
-276,Yusuf Demir,Medya,Male,0.2,16,90
-277,Sinemis Yılmaz,Makine Mühendisliği,Female,3.8,44,75
-278,İbrahim Koç,Hukuk,Male,3.8,20,65
-279,Cem Kaya,Matematik,Male,4.1,2,20
-280,Mustafa Polat,Hukuk,Male,2.1,16,90
-281,Atalay Aksoy,Medya,Male,3.3,23,70
-282,Berk Polat,Medya,Male,1.8,48,0
-283,Mustafa Aydın,Fizik,Male,4.4,41,60
-284,Berk Aksoy,Medya,Male,2.5,46,65
-285,Dilara Güneş,Bilgisayar Mühendisliği,Female,0.7,25,55
-286,Utku Kaya,Matematik,Other,4.8,6,65
-287,Elif Öztürk,Matematik,Female,1.6,16,5
-288,Sibel Şahin,Psikoloji,Female,2.1,1,70
-289,Yusuf Yılmaz,Fizik,Male,1.6,26,25
-290,Ahmet Altun,Makine Mühendisliği,Male,3.4,17,65
-291,Arin Yılmaz,Fizik,Other,3.8,3,85
-292,Utku Aydın,Medya,Other,3.7,6,50
-293,Ayşe Altun,Hukuk,Female,3.1,43,35
-294,Osman Kaya,Medya,Male,4.3,2,55
-295,Nur Öztürk,Psikoloji,Female,4.1,6,90
-296,Osman Yılmaz,Hukuk,Male,4.3,7,55
-297,Ozan Koç,İşletme,Other,3.1,47,80
-298,Büşra Çelik,Biyoloji,Female,1.2,25,25
-299,Berfin Çetin,Matematik,Female,3.0,10,5
-300,Gül Aksoy,Medya,Female,0.9,20,30
-301,Büşra Altun,Psikoloji,Female,3.9,1,20
-302,Yasemin Toktaş,Fizik,Female,4.1,17,10
-303,Evren Erdem,Makine Mühendisliği,Other,3.2,11,50
-304,Osman Aydın,Psikoloji,Male,4.4,8,25
-305,Arin Toktaş,Biyoloji,Other,4.4,3,60
-306,Yıldız Koç,Hukuk,Other,2.3,29,75
-307,Zeynep Altun,Medya,Female,4.4,47,60
-308,Uğur Aydın,Makine Mühendisliği,Male,1.0,19,45
-309,Büşra Öztürk,Fizik,Female,3.3,5,5
-310,Havva Erdem,Biyoloji,Female,3.4,15,50
-311,Sinemis Güneş,Fizik,Female,3.5,47,80
-312,Ece Koç,Makine Mühendisliği,Female,2.6,3,45
-313,Uğur Çelik,Matematik,Male,4.9,45,90
-314,Duygu Altun,Biyoloji,Female,2.7,7,70
-315,Emre Altun,Hukuk,Male,4.4,3,0
-316,Doğa Çetin,Medya,Other,2.8,6,25
-317,Duygu Erdem,Bilgisayar Mühendisliği,Female,2.8,27,35
-318,Oğuz Demir,İşletme,Male,3.0,7,15
-319,Sinemis Aydın,Biyoloji,Female,1.2,5,50
-320,Osman Toktaş,Matematik,Male,0.9,39,90
-321,Havva Aksoy,Matematik,Female,2.8,11,30
-322,Atalay Koç,Biyoloji,Male,0.6,22,95
-323,Emre Yılmaz,Biyoloji,Male,3.6,35,60
-324,Cem Öztürk,Psikoloji,Male,3.3,39,5
-325,Ozan Aksoy,Fizik,Other,4.4,1,20
-326,Havva Öztürk,Medya,Female,0.7,8,95
-327,Selin Güneş,Medya,Female,3.7,39,40
-328,Beren Güneş,Medya,Female,2.3,28,0
-329,Ahmet Yılmaz,Hukuk,Male,3.5,29,55
-330,Utku Toktaş,Psikoloji,Other,4.2,5,30
-331,Selin Kaya,Medya,Female,4.0,21,20
-332,Dilara Demir,Matematik,Female,2.2,4,10
-333,Hatice Koç,Hukuk,Female,4.4,3,45
-334,Yasemin Koç,Hukuk,Female,3.6,2,55
-335,Ceren Öztürk,Psikoloji,Female,4.3,9,40
-336,Berk Demir,Makine Mühendisliği,Male,3.9,10,5
-337,Merve Yılmaz,Fizik,Female,2.9,41,25
-338,Emine Demir,Fizik,Female,3.6,1,50
-339,Sibel Şahin,İşletme,Female,3.0,37,95
-340,Dilara Erdem,Bilgisayar Mühendisliği,Female,0.3,26,55
-341,Nur Aydın,Hukuk,Female,4.4,38,60
-342,Mustafa Öztürk,Medya,Male,3.6,30,15
-343,İbrahim Şahin,Hukuk,Male,3.2,43,40
-344,İbrahim Toktaş,İşletme,Male,4.3,15,90
-345,Kaan Demir,Bilgisayar Mühendisliği,Male,4.2,4,10
-346,Sibel Güneş,Matematik,Female,4.2,19,10
-347,Dilara Demir,İşletme,Female,2.8,24,25
-348,Cem Toktaş,Matematik,Male,2.5,26,35
-349,Osman Demir,Hukuk,Male,2.1,15,50
-350,Murat Çetin,Bilgisayar Mühendisliği,Male,3.9,27,55
-351,Murat Güneş,Biyoloji,Male,1.4,17,80
-352,İpek Demir,Psikoloji,Female,3.3,25,45
-353,Murat Kaya,Hukuk,Male,2.8,50,15
-354,Eren Çetin,Bilgisayar Mühendisliği,Male,4.5,23,10
-355,Eren Öztürk,Fizik,Male,4.4,8,35
-356,Murat Öztürk,Bilgisayar Mühendisliği,Male,3.4,11,70
-357,Turan Yılmaz,Medya,Male,1.7,8,20
-358,Selin Polat,Matematik,Female,2.4,33,60
-359,Duygu Aksoy,İşletme,Female,4.6,3,75
-360,Ozan Öztürk,Medya,Other,4.3,49,35
-361,Mustafa Aydın,Medya,Male,3.6,4,75
-362,Osman Çelik,Matematik,Male,3.0,3,20
-363,Selim Şahin,Medya,Male,4.5,6,75
-364,Arin Kaya,Hukuk,Other,3.6,30,65
-365,Cem Demir,Fizik,Male,4.1,44,5
-366,Hatice Koç,Fizik,Female,3.3,19,65
-367,Osman Aksoy,Hukuk,Male,0.8,46,75
-368,Eda Aydın,İşletme,Female,3.8,2,55
-369,Merve Çetin,Matematik,Female,4.6,10,10
-370,Deniz Yılmaz,Makine Mühendisliği,Other,3.5,5,95
-371,Duygu Çetin,Hukuk,Female,4.4,38,40
-372,Nur Kaya,Hukuk,Female,2.7,23,30
-373,Murat Güneş,Medya,Male,3.6,6,95
-374,Zeynep Toktaş,Makine Mühendisliği,Female,3.0,11,95
-375,Sibel Kaya,Psikoloji,Female,4.0,49,60
-376,Ege Toktaş,Matematik,Male,4.6,21,15
-377,Berk Polat,Hukuk,Male,2.6,10,35
-378,Eren Altun,Hukuk,Male,4.3,21,95
-379,Berfin Aksoy,Biyoloji,Female,2.4,43,50
-380,Evren Aksoy,Hukuk,Other,3.1,13,25
-381,Selin Aksoy,Hukuk,Female,0.4,24,80
-382,Berfin Aksoy,Biyoloji,Female,2.2,44,45
-383,Eda Erdem,Bilgisayar Mühendisliği,Female,0.6,10,25
-384,İbrahim Demir,Psikoloji,Male,3.9,2,40
-385,İbrahim Güneş,Biyoloji,Male,3.1,3,85
-386,Elif Öztürk,Medya,Female,2.8,40,75
-387,Elif Çetin,Bilgisayar Mühendisliği,Female,4.1,45,45
-388,Oğuz Yılmaz,Medya,Male,3.2,3,30
-389,Ece Erdem,Hukuk,Female,3.4,43,50
-390,Deniz Polat,Makine Mühendisliği,Other,4.3,24,90
-391,Sinemis Demir,Bilgisayar Mühendisliği,Female,4.3,1,55
-392,Duygu Aksoy,Fizik,Female,4.7,21,5
-393,Deniz Güneş,Medya,Other,3.5,22,70
-394,Hasan Şahin,Psikoloji,Male,2.4,8,20
-395,Dilara Demir,İşletme,Female,3.2,12,5
-396,Sibel Koç,İşletme,Female,4.3,1,55
-397,Emre Çetin,Fizik,Male,2.1,5,45
-398,Dilara Kaya,Fizik,Female,4.6,2,30
-399,Eda Koç,Biyoloji,Female,1.5,14,5
-400,Ozan Güneş,İşletme,Other,2.7,18,55
-401,Sinemis Altun,Fizik,Female,4.1,13,10
-402,Emre Çetin,Fizik,Male,3.1,27,65
-403,Hasan Toktaş,Matematik,Male,4.1,7,75
-404,Beren Koç,Biyoloji,Female,1.6,17,55
-405,Ege Polat,Matematik,Male,2.6,1,10
-406,Eren Aksoy,Makine Mühendisliği,Male,4.1,46,20
-407,Havva Aksoy,Biyoloji,Female,3.5,2,15
-408,Beren Aksoy,Matematik,Female,4.2,5,25
-409,Yasemin Şahin,Hukuk,Female,4.1,48,10
-410,Yusuf Polat,Fizik,Male,3.1,33,85
-411,Doğa Erdem,Hukuk,Other,4.2,2,35
-412,Emine Polat,Hukuk,Female,2.8,5,85
-413,Eda Çetin,İşletme,Female,4.2,29,20
-414,Eren Yılmaz,Makine Mühendisliği,Male,4.3,43,35
-415,Mustafa Koç,Hukuk,Male,4.0,13,85
-416,Selin Altun,Makine Mühendisliği,Female,4.3,29,80
-417,Büşra Kaya,Biyoloji,Female,2.9,18,25
-418,Eren Kaya,Hukuk,Male,2.7,42,25
-419,Gül Aydın,Psikoloji,Female,4.5,7,50
-420,Deniz Şahin,Makine Mühendisliği,Other,4.6,22,15
-421,Fatma Aydın,Matematik,Female,2.0,12,50
-422,Atalay Çetin,Biyoloji,Male,3.7,45,80
-423,Kaan Erdem,Bilgisayar Mühendisliği,Male,2.6,29,85
-424,Ali Güneş,Medya,Male,4.5,7,25
-425,Duygu Çelik,Psikoloji,Female,3.6,4,15
-426,Ceren Aydın,Psikoloji,Female,3.4,45,25
-427,Selim Aydın,Makine Mühendisliği,Male,4.6,8,75
-428,Furkan Öztürk,Bilgisayar Mühendisliği,Male,3.3,7,45
-429,Emre Polat,Bilgisayar Mühendisliği,Male,3.1,2,45
-430,Dilara Erdem,Makine Mühendisliği,Female,4.1,6,35
-431,Yusuf Aydın,Biyoloji,Male,2.0,18,85
-432,Nur Erdem,Bilgisayar Mühendisliği,Female,4.5,26,5
-433,Gül Yılmaz,İşletme,Female,1.7,11,5
-434,Duygu Altun,İşletme,Female,0.8,1,85
-435,Elif Koç,Medya,Female,2.2,8,30
-436,Murat Koç,Biyoloji,Male,3.3,9,80
-437,Eren Kaya,Matematik,Male,3.1,20,20
-438,Sinemis Toktaş,Biyoloji,Female,4.3,27,35
-439,Fatma Aydın,Biyoloji,Female,3.1,17,90
-440,Cem Güneş,İşletme,Male,0.8,19,75
-441,Berk Kaya,Psikoloji,Male,3.7,6,85
-442,Mehmet Polat,Biyoloji,Male,4.9,24,70
-443,Dilara Aydın,Fizik,Female,1.3,3,20
-444,Zeynep Aksoy,Hukuk,Female,1.0,26,5
-445,Dilara Çetin,Medya,Female,4.7,19,75
-446,Berfin Toktaş,Hukuk,Female,4.0,34,55
-447,Beren Demir,İşletme,Female,4.0,26,95
-448,Merve Öztürk,Fizik,Female,3.9,30,35
-449,İpek Güneş,Medya,Female,2.3,11,65
-450,Hasan Yılmaz,Bilgisayar Mühendisliği,Male,4.5,48,10
-451,Ayşe Kaya,İşletme,Female,3.1,29,50
-452,Ece Şahin,Medya,Female,4.1,19,55
-453,Sinemis Şahin,Matematik,Female,3.4,47,5
-454,Nur Çelik,Fizik,Female,4.9,10,90
-455,Emine Öztürk,Medya,Female,4.4,1,15
-456,Turan Çetin,Matematik,Male,4.1,3,70
-457,Duygu Çelik,Hukuk,Female,1.3,26,95
-458,Sinemis Öztürk,Medya,Female,1.8,8,35
-459,Fatma Toktaş,Fizik,Female,4.7,2,5
-460,Gül Yılmaz,Psikoloji,Female,3.0,38,5
-461,Mehmet Demir,Psikoloji,Male,3.1,27,95
-462,Eda Güneş,Psikoloji,Female,2.3,7,60
-463,Ceren Aydın,Bilgisayar Mühendisliği,Female,4.7,34,40
-464,Ece Altun,Biyoloji,Female,4.1,2,90
-465,Zeynep Koç,Medya,Female,3.0,21,5
-466,Berfin Kaya,Biyoloji,Female,4.2,21,70
-467,Duygu Yılmaz,Makine Mühendisliği,Female,2.5,16,5
-468,Mehmet Demir,Matematik,Male,2.3,10,65
-469,Berk Polat,Matematik,Male,4.9,39,25
-470,Elif Altun,Medya,Female,3.8,4,55
-471,Yusuf Toktaş,İşletme,Male,1.9,33,50
-472,Nur Kaya,İşletme,Female,0.6,3,0
-473,Fatma Çetin,Hukuk,Female,4.4,4,60
-474,Turan Altun,Fizik,Male,3.0,8,85
-475,Arin Demir,Hukuk,Other,4.6,11,70
-476,Beren Toktaş,Fizik,Female,3.1,8,25
-477,Emre Erdem,Bilgisayar Mühendisliği,Male,4.4,4,10
-478,Merve Çetin,Fizik,Female,3.4,27,10
-479,Yusuf Çelik,Medya,Male,4.4,23,95
-480,Ceren Yılmaz,Bilgisayar Mühendisliği,Female,4.4,10,95
-481,Arin Koç,Psikoloji,Other,4.1,10,15
-482,Zeynep Aydın,Fizik,Female,2.9,8,45
-483,Hasan Öztürk,Hukuk,Male,1.0,31,30
-484,Furkan Aydın,Medya,Male,1.4,5,15
-485,Oğuz Demir,Hukuk,Male,3.0,12,35
-486,Atalay Altun,İşletme,Male,4.2,17,35
-487,Hasan Çetin,İşletme,Male,3.2,32,65
-488,Berfin Demir,İşletme,Female,4.5,6,70
-489,Sinemis Toktaş,Matematik,Female,3.4,3,15
-490,Arin Şahin,Bilgisayar Mühendisliği,Other,0.4,22,75
-491,Berk Kaya,İşletme,Male,4.0,27,15
-492,Ayşe Aksoy,Psikoloji,Female,4.4,7,65
-493,Ceren Erdem,İşletme,Female,2.8,46,40
-494,Ayşe Çetin,Fizik,Female,1.0,14,15
-495,Arin Öztürk,Medya,Other,2.2,30,75
-496,Duygu Koç,İşletme,Female,4.2,5,25
-497,Sinemis Toktaş,Fizik,Female,3.3,1,45
-498,Yasemin Güneş,Makine Mühendisliği,Female,3.0,22,95
-499,Doğa Altun,Bilgisayar Mühendisliği,Other,4.7,11,20
-500,Oğuz Aydın,Fizik,Male,2.9,45,95
+StudentID,S_name,Major,Sex,Rating,Level,XP,Password
+1,Atalay Polat,Fizik,Male,2.5,2,70,uUA0ip9y
+2,Atalay Altun,Hukuk,Male,1.8,19,25,aeObs6zN
+3,Ozan Kaya,Makine Mühendisliği,Other,3.6,22,25,6YHTsQGt
+4,Ali Aksoy,Makine Mühendisliği,Male,2.5,3,65,hJgGUKEG
+5,Selin Aksoy,Makine Mühendisliği,Female,2.4,8,95,-ejVMbV?
+6,Ece Çetin,İşletme,Female,4.6,5,80,mQFrAcv_
+7,Büşra Polat,İşletme,Female,4.8,3,30,arImoUwX
+8,Ayşe Polat,Matematik,Female,3.4,42,75,A!L0v*Pq
+9,Nur Kaya,Biyoloji,Female,4.3,1,20,oHi8dhVK
+10,Ceren Çelik,Makine Mühendisliği,Female,1.8,15,0,TpRSy-SL
+11,Berk Erdem,Biyoloji,Male,4.7,2,55,eU-Kg6C_
+12,Duygu Toktaş,Matematik,Female,1.2,20,5,jzOaE1HJ
+13,İbrahim Çelik,Biyoloji,Male,3.9,11,85,.q.-96BE
+14,Cem Yılmaz,Biyoloji,Male,1.8,40,30,J4E9eDN2
+15,Berk Çelik,Bilgisayar Mühendisliği,Male,2.9,18,60,3_Z4n5f1
+16,Sinemis Polat,Bilgisayar Mühendisliği,Female,0.8,30,45,0CpYQVmz
+17,Merve Kaya,İşletme,Female,3.3,22,50,H4vlRj6s
+18,Ozan Yılmaz,Matematik,Other,1.1,5,75,yuTYi.o0
+19,Ozan Çelik,Biyoloji,Other,4.4,30,55,mq6RwJ_h
+20,İbrahim Demir,Biyoloji,Male,2.1,14,80,5pAOh0D0
+21,Fatma Çetin,Hukuk,Female,4.3,10,85,nKZzKi6Q
+22,Fatma Güneş,Makine Mühendisliği,Female,4.4,18,15,jLvIR87i
+23,Sibel Demir,Psikoloji,Female,3.3,14,55,cEbezqhI
+24,Hatice Toktaş,Biyoloji,Female,3.1,2,65,QGm778D0
+25,Eda Aydın,Biyoloji,Female,4.0,37,25,VSrIejAh
+26,Eren Altun,Biyoloji,Male,0.9,4,35,wjdsmL3R
+27,Oğuz Erdem,Fizik,Male,4.1,3,70,oXr?_nNS
+28,Evren Altun,Medya,Other,0.8,41,65,vK4eS.ek
+29,Ceren Erdem,Medya,Female,4.1,10,35,5fgOoSJ?
+30,Dilara Çetin,Psikoloji,Female,2.7,10,75,Vstmi_i3
+31,Arin Erdem,Bilgisayar Mühendisliği,Other,2.3,32,20,C*5O7mcu
+32,Mehmet Polat,Fizik,Male,4.6,2,85,.apB7wM2
+33,Selin Yılmaz,Hukuk,Female,3.3,32,0,!WnO2iub
+34,Sinemis Koç,Matematik,Female,2.4,46,65,nHYomQp.
+35,Eren Aydın,İşletme,Male,3.3,10,80,DS9t0xdc
+36,Havva Yılmaz,Hukuk,Female,0.6,2,80,Z.ZPzziB
+37,Uğur Toktaş,Medya,Male,3.0,2,55,QOR9.L!q
+38,Ozan Altun,Psikoloji,Other,1.6,43,60,w?fRp7oh
+39,Ayşe Şahin,Hukuk,Female,2.6,9,20,x!*uTgE!
+40,Osman Altun,Medya,Male,2.5,3,20,fO87-ZO-
+41,Yasemin Aydın,Biyoloji,Female,3.0,2,15,-Ivp_8E-
+42,Sinemis Toktaş,Biyoloji,Female,4.4,30,45,GYB!F2mX
+43,Berk Çetin,Medya,Male,4.9,25,40,m97t!Ic0
+44,Doğa Öztürk,Makine Mühendisliği,Other,3.6,34,85,qVNUoGw!
+45,Zeynep Demir,Makine Mühendisliği,Female,3.3,10,30,vZl8rrIp
+46,Havva Şahin,İşletme,Female,3.4,27,10,cD5tOV.T
+47,Utku Erdem,Psikoloji,Other,4.9,4,30,fCKTiWt?
+48,Ayşe Yılmaz,Bilgisayar Mühendisliği,Female,3.0,4,5,L_NsjiTL
+49,Yusuf Toktaş,Biyoloji,Male,4.3,10,65,6A1aJYDg
+50,Utku Toktaş,Biyoloji,Other,1.2,10,50,WOD4Cekk
+51,Fatma Öztürk,Makine Mühendisliği,Female,1.0,38,55,Mpjf8pnl
+52,Berfin Çelik,Matematik,Female,1.0,43,15,B*8XiBEb
+53,Doğa Polat,Bilgisayar Mühendisliği,Other,4.1,6,0,CJb?tcn_
+54,Turan Çelik,Fizik,Male,4.2,8,35,vQoU*ZfG
+55,Fatma Çetin,İşletme,Female,1.6,1,0,6bFOG.Oa
+56,Hüseyin Aydın,Fizik,Male,2.4,7,55,KrRO33g3
+57,Ahmet Öztürk,Fizik,Male,3.1,42,80,w-o6L.7t
+58,Utku Polat,Makine Mühendisliği,Other,3.6,9,15,f2VfU32g
+59,Eren Koç,Matematik,Male,3.2,46,30,F6JkW6Ut
+60,Dilara Çelik,Makine Mühendisliği,Female,1.9,26,75,BmZkHyzQ
+61,Zeynep Güneş,Fizik,Female,4.1,48,60,Z1l4l?eY
+62,Ece Altun,Medya,Female,2.6,10,30,k0-6*DSP
+63,Kaan Koç,Psikoloji,Male,2.0,39,15,nirNfPKE
+64,Zeynep Yılmaz,Biyoloji,Female,1.8,1,45,fGDIoU!o
+65,İbrahim Demir,İşletme,Male,4.1,32,10,KFoUA!oJ
+66,Utku Polat,Biyoloji,Other,4.1,18,45,mosBIsx2
+67,Sibel Çetin,Makine Mühendisliği,Female,4.5,19,25,N0.XXGZX
+68,Elif Demir,Bilgisayar Mühendisliği,Female,3.2,39,60,y6.ILIV9
+69,Sibel Altun,Hukuk,Female,1.5,11,55,ok3Y-4Rz
+70,Berfin Toktaş,Biyoloji,Female,4.2,5,70,oz45SScU
+71,Duygu Aksoy,Psikoloji,Female,3.6,46,0,Q8yDSWVB
+72,Elif Polat,Biyoloji,Female,3.9,9,65,?a_E2Cd6
+73,Osman Şahin,Medya,Male,1.9,2,50,*ML!o8!.
+74,Turan Güneş,Psikoloji,Male,1.9,2,80,iGKp1ckj
+75,Duygu Polat,Matematik,Female,4.4,29,5,aoU.nAUM
+76,Ayşe Kaya,Fizik,Female,3.9,35,40,2aueiXA7
+77,Ege Altun,İşletme,Male,4.5,21,95,E0KC?rVy
+78,Ayşe Toktaş,Biyoloji,Female,4.3,29,45,UZ*bb!Rg
+79,Mustafa Polat,İşletme,Male,3.3,15,25,EdArKrox
+80,Ozan Demir,Bilgisayar Mühendisliği,Other,4.1,6,40,XVHEdSRz
+81,İbrahim Öztürk,Hukuk,Male,1.4,12,55,VGG--ueF
+82,Utku Güneş,Psikoloji,Other,4.7,10,85,q6wBzALP
+83,Mehmet Kaya,Bilgisayar Mühendisliği,Male,3.2,6,70,_-_IzZ69
+84,Mustafa Erdem,Medya,Male,4.3,8,5,ef.hJVZW
+85,Kaan Aydın,Makine Mühendisliği,Male,4.2,18,90,r?NCTvDZ
+86,Sinemis Altun,Biyoloji,Female,3.2,5,15,gPkTbXql
+87,Havva Erdem,Makine Mühendisliği,Female,3.8,9,35,0SDLDR20
+88,Deniz Koç,Makine Mühendisliği,Other,2.1,32,55,Jwq6C1bY
+89,Sibel Şahin,Psikoloji,Female,3.0,4,0,Oeqb2Dz6
+90,Havva Güneş,Biyoloji,Female,3.8,9,40,RryqU*6Z
+91,Merve Erdem,Biyoloji,Female,4.7,5,45,eRf5msh0
+92,Hüseyin Kaya,İşletme,Male,4.5,48,65,GXrbZmWb
+93,Mustafa Koç,Bilgisayar Mühendisliği,Male,2.6,5,75,ODgq6Oa0
+94,Turan Toktaş,Hukuk,Male,3.6,7,80,JeuhXqkt
+95,Eda Yılmaz,İşletme,Female,2.8,3,75,Loi8BkZi
+96,Hatice Aksoy,Bilgisayar Mühendisliği,Female,2.7,2,70,NXftdCpN
+97,Dilara Polat,Psikoloji,Female,1.8,2,70,twWmQcBi
+98,Ahmet Çetin,Psikoloji,Male,1.6,39,0,BGEQjVk!
+99,İpek Yılmaz,Makine Mühendisliği,Female,3.0,42,65,mnN*lY6L
+100,Zeynep Erdem,Makine Mühendisliği,Female,1.2,38,40,oC!.l5tB
+101,Duygu Kaya,Bilgisayar Mühendisliği,Female,3.3,8,5,F_uiWs1n
+102,Ozan Altun,Bilgisayar Mühendisliği,Other,3.6,2,10,GLSQsNTu
+103,Emine Toktaş,Biyoloji,Female,4.7,31,65,BJLLGZbK
+104,Kaan Polat,Matematik,Male,4.5,28,35,UHRp8ziH
+105,Kaan Erdem,Biyoloji,Male,0.8,5,70,6R1k!4D!
+106,Nur Erdem,Psikoloji,Female,1.9,16,70,*R78TNp0
+107,Ceren Altun,Bilgisayar Mühendisliği,Female,4.2,10,50,6aSstYCF
+108,Nur Polat,İşletme,Female,2.2,2,45,uUQAfS9!
+109,Selin Öztürk,Fizik,Female,4.0,47,60,*dK-Icy!
+110,Uğur Altun,İşletme,Male,3.7,10,40,wny_rWHc
+111,Murat Demir,Bilgisayar Mühendisliği,Male,4.2,16,20,ToSeWDzm
+112,Ali Çelik,Bilgisayar Mühendisliği,Male,3.5,24,20,T1!3Tzx3
+113,Utku Koç,Biyoloji,Other,1.8,12,15,2qoz!1?P
+114,Cem Aksoy,Hukuk,Male,1.8,44,5,tw2X4kT.
+115,Zeynep Güneş,Matematik,Female,3.6,4,10,q-ObNYFB
+116,Sinemis Demir,Psikoloji,Female,3.2,21,95,u1s29aG5
+117,Cem Öztürk,Bilgisayar Mühendisliği,Male,2.1,10,15,Q65?V-2A
+118,Duygu Yılmaz,Matematik,Female,3.4,12,25,Zy!-cH*x
+119,Turan Altun,Hukuk,Male,2.7,26,50,XheiGnNZ
+120,Ege Polat,Matematik,Male,1.6,12,10,FeMdFcO0
+121,İbrahim Çelik,Psikoloji,Male,2.3,14,75,z!vEkSZ-
+122,Hüseyin Aksoy,Fizik,Male,4.1,1,75,6dv58Iff
+123,Ece Aydın,Fizik,Female,2.2,6,5,r8L-pbHM
+124,Hüseyin Çelik,Bilgisayar Mühendisliği,Male,2.4,1,5,V8v!-4pe
+125,Ali Erdem,Biyoloji,Male,3.4,8,35,c2Xft6?9
+126,Dilara Güneş,Fizik,Female,3.0,2,65,C74vLMkE
+127,Oğuz Koç,Matematik,Male,2.0,41,25,H0Jx!6Cr
+128,Mehmet Erdem,İşletme,Male,4.7,8,10,JVdoM6kl
+129,Nur Toktaş,Fizik,Female,4.3,7,10,AQmA-u2*
+130,Sinemis Yılmaz,Makine Mühendisliği,Female,3.8,44,75,zJ4xLDbT
+131,Nur Kaya,Matematik,Female,4.1,2,20,yjJZHMd6
+132,Duygu Aydın,Psikoloji,Female,1.8,7,20,*zamk853
+133,Murat Demir,Biyoloji,Male,3.1,20,15,HSB03bNY
+134,Gül Toktaş,Makine Mühendisliği,Female,1.8,6,65,HomNZ*3Z
+135,Furkan Çetin,Psikoloji,Male,2.1,1,70,h58ah1Gr
+136,Selim Kaya,Hukuk,Male,2.5,7,5,1Svk.4PP
+137,Cem Koç,Hukuk,Male,1.0,21,20,AWluY-3c
+138,Ece Aydın,Matematik,Female,2.7,2,75,E_k!dKRg
+139,Sibel Polat,İşletme,Female,2.8,34,80,JFusd7*5
+140,Berfin Çetin,Matematik,Female,3.0,10,5,RICe?ZC-
+141,Ceren Altun,Bilgisayar Mühendisliği,Female,3.5,1,85,7mQI8n1-
+142,Evren Erdem,Makine Mühendisliği,Other,3.2,11,50,ruHW9ko_
+143,Ali Yılmaz,Hukuk,Male,1.9,40,50,LQ2NQiAd
+144,Merve Altun,Biyoloji,Female,0.5,13,5,DDrU3u!G
+145,Eren Şahin,Bilgisayar Mühendisliği,Male,3.3,5,80,7T21TpjK
+146,Ozan Erdem,Hukuk,Other,4.1,2,45,_Ctdp.4E
+147,Murat Altun,Biyoloji,Male,2.7,7,70,lb05gl!k
+148,Evren Koç,Bilgisayar Mühendisliği,Other,1.0,9,70,Ta2vJwHy
+149,Uğur Aksoy,Medya,Male,4.6,24,45,eeukukyX
+150,İpek Kaya,Hukuk,Female,4.2,35,55,.hb9rUxr
+151,Ece Öztürk,Makine Mühendisliği,Female,3.2,10,15,8kAfxVQD
+152,Mustafa Şahin,Bilgisayar Mühendisliği,Male,3.1,48,35,6sc8MqCC
+153,Sibel Öztürk,Medya,Female,3.7,39,40,v01pKV_K
+154,Ahmet Yılmaz,Hukuk,Male,3.5,29,55,.6.1k0o?
+155,İbrahim Güneş,İşletme,Male,1.7,7,25,k8d9oVYl
+156,Elif Koç,Matematik,Female,3.9,9,50,Is*xg3P4
+157,Turan Çetin,Biyoloji,Male,1.5,15,15,TqNc_bo*
+158,Hüseyin Yılmaz,Matematik,Male,2.0,28,55,sd8tzIhP
+159,Ahmet Güneş,Medya,Male,3.3,9,75,xTC5-pSu
+160,Furkan Çetin,Medya,Male,3.6,30,15,lVXs*F?A
+161,Evren Çelik,Biyoloji,Other,4.3,42,25,Lit81j2m
+162,Cem Çetin,Biyoloji,Male,4.1,30,70,rgdlyNCS
+163,Mehmet Toktaş,İşletme,Male,4.5,9,10,GotJ_Gv5
+164,Sinemis Polat,Hukuk,Female,1.8,23,55,3fKZn1ME
+165,Emine Erdem,Biyoloji,Female,2.6,33,85,x2O5*SxV
+166,Duygu Koç,Medya,Female,1.4,10,35,6AFoDWQI
+167,Beren Erdem,Fizik,Female,2.7,3,95,hF19Is81
+168,Turan Altun,Matematik,Male,4.0,21,60,u7!.LX.3
+169,Ozan Çelik,İşletme,Other,1.2,24,60,NpmG0ply
+170,Emine Demir,Makine Mühendisliği,Female,4.0,24,5,jw_YIQFD
+171,Mustafa Çelik,Medya,Male,4.5,32,20,6lnd6R8B
+172,Turan Yılmaz,Matematik,Male,4.3,26,75,FnCRzfzy
+173,Mustafa Toktaş,İşletme,Male,3.7,50,10,?_dgx-QU
+174,Doğa Şahin,Makine Mühendisliği,Other,3.9,10,80,vTUQkyAQ
+175,Furkan Öztürk,Makine Mühendisliği,Male,4.5,10,0,OrgV_.Aj
+176,Eren Demir,İşletme,Male,4.1,7,80,ZLiDpNTI
+177,Nur Öztürk,Psikoloji,Female,3.3,39,25,7B0_G3JY
+178,Furkan Aksoy,Hukuk,Male,0.4,24,80,OZ6n6CQo
+179,Berfin Yılmaz,Bilgisayar Mühendisliği,Female,2.5,10,25,urGRe5lr
+180,Dilara Yılmaz,İşletme,Female,4.9,44,30,8nCQmF1n
+181,Yasemin Erdem,Biyoloji,Female,4.4,8,5,BHfl56EM
+182,Mustafa Aydın,İşletme,Male,3.2,27,15,3Q*MQjb7
+183,Emre Aksoy,İşletme,Male,4.2,17,40,Xw?hDNxE
+184,Büşra Erdem,Biyoloji,Female,3.3,35,90,UlwTMe6z
+185,Murat Yılmaz,İşletme,Male,4.4,18,30,*lRt*Cpu
+186,Elif Altun,İşletme,Female,4.0,9,90,V.cI0w8b
+187,Eren Toktaş,Fizik,Male,4.1,13,10,y2Y77SCM
+188,Ece Şahin,Fizik,Female,4.4,18,30,z5QbuEzy
+189,Ozan Demir,Biyoloji,Other,3.7,13,25,b5Ne8cjG
+190,Sibel Polat,Psikoloji,Female,1.1,9,0,-kF7sVKU
+191,Yasemin Altun,Makine Mühendisliği,Female,1.1,9,30,D-?VL?i-
+192,Utku Demir,Biyoloji,Other,3.1,18,0,4i6xv2R2
+193,Oğuz Aksoy,İşletme,Male,4.2,29,20,cTffrTup
+194,Atalay Güneş,Hukuk,Male,4.0,13,85,1Oez7NI7
+195,Osman Aydın,Matematik,Male,4.2,4,10,_Wv7ZyZl
+196,Gül Aydın,Psikoloji,Female,4.5,7,50,-drPN?Mz
+197,Fatma Aydın,Matematik,Female,2.0,12,50,yYVWP5DP
+198,Kaan Erdem,Bilgisayar Mühendisliği,Male,2.6,29,85,fg058fB8
+199,Selin Öztürk,Fizik,Female,3.2,17,35,XI9CI?1.
+200,Mehmet Erdem,Medya,Male,4.6,45,85,HxOc-qDY
+201,Gül Toktaş,Bilgisayar Mühendisliği,Female,3.1,2,45,MC!1XA61
+202,Yusuf Aydın,Biyoloji,Male,2.0,18,85,DvW8aLaF
+203,Ege Polat,Bilgisayar Mühendisliği,Male,4.3,15,50,0b5QvlEM
+204,Cem Çetin,Medya,Male,2.2,8,30,mx4uJY*J
+205,Eren Kaya,Matematik,Male,3.1,20,20,0T!sqvp*
+206,Sibel Erdem,Hukuk,Female,2.0,5,10,wOcYrAD.
+207,Ceren Kaya,Psikoloji,Female,2.9,2,85,tXC4ELDp
+208,Arin Demir,Matematik,Other,3.9,9,5,FLGQDBp5
+209,Arin Erdem,Psikoloji,Other,3.8,47,80,hw0bx6.-
+210,Doğa Altun,Makine Mühendisliği,Other,3.7,10,65,pTa!poax
+211,Ozan Kaya,Fizik,Other,4.1,6,65,s8UY4y6D
+212,Elif Aksoy,Biyoloji,Female,4.1,8,40,kuRdNvn5
+213,Ozan Öztürk,Matematik,Other,3.7,46,20,-idJmF4*
+214,Duygu Çelik,Hukuk,Female,1.3,26,95,YUBKvqs*
+215,Furkan Şahin,Makine Mühendisliği,Male,1.1,1,75,B9?c-beZ
+216,Sinemis Çelik,Hukuk,Female,4.3,8,35,ZgzEE0?*
+217,Oğuz Altun,Hukuk,Male,4.2,19,55,Bf_49yAQ
+218,Deniz Çetin,Matematik,Other,4.8,5,5,46*WEJcg
+219,Sibel Demir,Bilgisayar Mühendisliği,Female,1.9,3,35,g5DIKkXo
+220,Hatice Güneş,Makine Mühendisliği,Female,3.5,10,65,RcYmzu8l
+221,Fatma Koç,Biyoloji,Female,4.3,6,0,*Dj0.Y45
+222,Hasan Çetin,Medya,Male,2.5,17,65,WlLml-O9
+223,Ege Erdem,İşletme,Male,0.5,44,25,U.l0F7rn
+224,Merve Çetin,Fizik,Female,3.4,27,10,goBKgzBE
+225,Oğuz Şahin,İşletme,Male,4.4,25,45,0NC5CAmF
+226,Hasan Öztürk,Hukuk,Male,1.0,31,30,4fPBCR_i
+227,Uğur Aydın,Medya,Male,3.6,38,5,kS0Jnxnx
+228,Duygu Çelik,Hukuk,Female,4.7,6,15,KF-*Jfk9
+229,Ayşe Yılmaz,Makine Mühendisliği,Female,4.0,8,50,cCwp4V2c
+230,Zeynep Yılmaz,Medya,Female,3.1,8,50,x-RW7CdY
+231,Ayşe Güneş,Hukuk,Female,2.1,2,90,Bh0?XJSy
+232,Büşra Demir,Hukuk,Female,3.9,46,45,f7uULfkf
+233,Ayşe Demir,Bilgisayar Mühendisliği,Female,4.7,11,20,aHpoeQH2
+234,Uğur Yılmaz,İşletme,Male,2.9,9,65,vJZVQW8q
+235,Arin Öztürk,Matematik,Other,1.7,4,65,rdh*_H2D
+236,Gül Erdem,Biyoloji,Female,3.8,23,80,X7ccVHoX
+237,Beren Erdem,İşletme,Female,3.6,27,5,IW7_qYcv
+238,Ahmet Kaya,Biyoloji,Male,4.4,17,10,-Xi1Pkmg
+239,Elif Altun,Psikoloji,Female,1.8,8,90,WyI-.5sN
+240,Selim Şahin,Fizik,Male,3.1,15,35,I7gpHka3
+241,Duygu Demir,Fizik,Female,2.4,10,75,oq_4t5Lv
+242,Berk Erdem,Hukuk,Male,3.6,3,40,KIa9GiV*
+243,Kaan Aydın,Makine Mühendisliği,Male,2.5,6,30,RSJqAM5C
+244,Sinemis Polat,Hukuk,Female,3.5,8,95,2cwXklxT
+245,Doğa Altun,Matematik,Other,4.5,33,45,Ly8JUsma
+246,Havva Öztürk,İşletme,Female,2.1,10,30,trnnI8g_
+247,Utku Koç,Hukuk,Other,3.5,2,45,WOu0wCv-
+248,Berfin Kaya,Fizik,Female,3.8,14,0,HQtwIpl?
+249,Turan Yılmaz,Hukuk,Male,2.2,7,90,DDESAzUg
+250,Cem Kaya,Biyoloji,Male,1.6,18,30,KW_rHmkh
+251,Kaan Çelik,Hukuk,Male,3.7,5,30,UPLRR*OK
+252,Utku Yılmaz,İşletme,Other,3.9,10,20,jj4a.Npi
+253,İpek Kaya,Hukuk,Female,2.9,20,30,!-R*K2Oo
+254,Fatma Şahin,İşletme,Female,1.8,13,80,jd2v0oUq
+255,Nur Polat,Fizik,Female,3.2,9,30,hr!vyF9h
+256,Murat Çetin,Makine Mühendisliği,Male,3.8,11,25,Pu*R.B*.
+257,Cem Altun,Psikoloji,Male,2.6,49,65,K1yxdUDv
+258,Furkan Altun,Medya,Male,3.0,3,85,aGBC!sFC
+259,Eren Altun,Hukuk,Male,3.5,7,90,B9I0MiGU
+260,Berk Kaya,Psikoloji,Male,3.6,3,85,Kd7*9vP-
+261,Kaan Demir,Matematik,Male,3.8,19,65,bH9fNfA?
+262,Sinemis Toktaş,Biyoloji,Female,2.9,24,5,rqtq!sZl
+263,Ayşe Koç,Matematik,Female,2.8,44,0,Fmt.rBIE
+264,Kaan Toktaş,Matematik,Male,3.6,7,60,mHYaT33P
+265,Evren Aydın,Medya,Other,2.8,6,40,nrOfoid*
+266,Sibel Altun,Medya,Female,2.7,6,90,jc.xNcJg
+267,Ahmet Polat,Medya,Male,1.8,28,40,uPcgMC9G
+268,Büşra Kaya,Fizik,Female,2.8,6,55,qajgRywX
+269,Havva Şahin,Fizik,Female,4.0,14,75,?JScoEuc
+270,Zeynep Yılmaz,Medya,Female,3.4,39,70,-Nx0to*g
+271,Zeynep Altun,Makine Mühendisliği,Female,4.0,5,10,LrT9VFix
+272,İpek Aydın,Biyoloji,Female,3.4,1,90,F78Fis?z
+273,Selin Çelik,Matematik,Female,1.6,8,85,HombYzu0
+274,Turan Yılmaz,İşletme,Male,3.8,9,95,3dI_rZS!
+275,Sibel Aksoy,İşletme,Female,4.0,4,30,VEXAJT27
+276,Ali Demir,Makine Mühendisliği,Male,1.3,10,90,CSb-hxT.
+277,Havva Koç,Fizik,Female,4.8,39,65,DZO*KIkd
+278,Furkan Toktaş,Biyoloji,Male,2.6,9,45,rWHjhb-b
+279,Ege Aksoy,İşletme,Male,0.4,31,70,lYZv_JM2
+280,Merve Polat,Biyoloji,Female,3.4,6,85,_nT-LRNk
+281,Havva Aydın,Bilgisayar Mühendisliği,Female,4.4,9,75,AslN?Sd-
+282,Fatma Kaya,Matematik,Female,3.9,6,95,lAC0_nKT
+283,Sinemis Erdem,İşletme,Female,4.3,10,5,diNQvLgM
+284,Hasan Toktaş,Hukuk,Male,4.3,3,85,4GcdzShj
+285,Deniz Demir,Makine Mühendisliği,Other,3.8,36,75,zLTzGeHR
+286,Yıldız Erdem,Matematik,Other,4.1,30,65,O5YwJ32c
+287,Eren Aydın,Biyoloji,Male,3.8,15,30,61.XJl2N
+288,Ece Toktaş,Biyoloji,Female,1.0,9,35,PRwiSb9i
+289,Beren Öztürk,Bilgisayar Mühendisliği,Female,3.6,4,95,cXsRyTwA
+290,Hatice Erdem,Hukuk,Female,2.0,13,70,65jKgVQk
+291,Uğur Toktaş,İşletme,Male,3.3,47,80,P1CQrpMa
+292,Elif Aksoy,Hukuk,Female,2.4,4,80,KW4Jz_oo
+293,Ege Toktaş,Hukuk,Male,0.3,13,15,t8MBq7!-
+294,Cem Öztürk,İşletme,Male,4.1,41,95,4iP3lgEz
+295,Emre Kaya,Fizik,Male,4.5,43,0,?z4IMgsl
+296,Furkan Kaya,Psikoloji,Male,4.3,16,70,rRUy88Of
+297,Beren Koç,Biyoloji,Female,3.8,29,20,UpvuVZU8
+298,Atalay Demir,Biyoloji,Male,3.5,6,95,2DZdIC*?
+299,Eren Çetin,Biyoloji,Male,3.4,9,40,ZWQKAgMY
+300,Atalay Çetin,Psikoloji,Male,4.6,5,65,7l.HNh1A
+301,Beren Altun,Bilgisayar Mühendisliği,Female,3.2,48,25,hPpjGzJh
+302,Havva Şahin,Matematik,Female,2.2,10,60,_sfa2*xb
+303,İpek Çelik,Fizik,Female,4.2,9,80,CkfX25O_
+304,Hüseyin Altun,İşletme,Male,4.4,7,80,1VSkcZkN
+305,Selim Kaya,Matematik,Male,1.9,2,90,dQ8YT_3z
+306,Duygu Kaya,Hukuk,Female,3.2,9,25,-KDC*DZK
+307,Dilara Öztürk,Fizik,Female,3.5,45,30,?b7dgtW1
+308,Kaan Demir,Matematik,Male,4.0,9,20,aYKD6FvP
+309,Fatma Kaya,İşletme,Female,2.7,9,85,Ac-!86W*
+310,Sinemis Çetin,Medya,Female,4.2,10,45,VY_Mnr-K
+311,Eda Çetin,Medya,Female,4.4,48,45,PHtVXU8!
+312,Berfin Şahin,İşletme,Female,4.3,33,50,Zr6*!hdy
+313,Ege Öztürk,Matematik,Male,4.1,25,20,-vC!kC8C
+314,Duygu Demir,Fizik,Female,2.9,6,70,BBQ.4nfr
+315,Arin Aksoy,İşletme,Other,3.5,10,5,zEkwjv.s
+316,Elif Çetin,İşletme,Female,4.6,3,70,R9tzEZ1?
+317,Turan Aydın,Hukuk,Male,4.4,10,80,.0iRjCp8
+318,Fatma Aydın,Matematik,Female,3.2,31,70,sLxCogE2
+319,İbrahim Koç,Psikoloji,Male,2.7,30,10,2spihry1
+320,Elif Aksoy,Biyoloji,Female,4.2,19,75,PKbrU-Wp
+321,Büşra Erdem,Psikoloji,Female,4.5,10,80,GPrZpwtW
+322,Ahmet Demir,Fizik,Male,2.1,6,30,9t0tJs_K
+323,Berk Yılmaz,Makine Mühendisliği,Male,4.7,43,60,JbYIZzQf
+324,Elif Öztürk,Hukuk,Female,3.9,10,65,Os!dL-ls
+325,Oğuz Altun,Bilgisayar Mühendisliği,Male,1.2,23,20,?7a3.Bll
+326,Hüseyin Toktaş,Matematik,Male,3.6,3,60,wOLOR0uB
+327,Murat Aydın,Bilgisayar Mühendisliği,Male,4.8,6,75,r0Aba.-u
+328,Dilara Öztürk,Matematik,Female,2.0,45,70,0KMfcPTp
+329,Ceren Öztürk,Fizik,Female,3.8,8,25,70I2aC?.
+330,Deniz Çetin,Biyoloji,Other,3.4,8,50,gU4?lA6v
+331,Mustafa Toktaş,Matematik,Male,2.6,2,15,H!nzG*oT
+332,Selim Şahin,Hukuk,Male,3.1,34,80,8.iq3kOm
+333,Emine Yılmaz,Makine Mühendisliği,Female,3.8,4,20,9dCFUXkh
+334,Ceren Çetin,Hukuk,Female,3.5,26,10,ubZ_Tu0K
+335,Nur Toktaş,Makine Mühendisliği,Female,2.4,48,40,fDyd!!w6
+336,Turan Çetin,İşletme,Male,2.9,29,45,qzMmf.Kb
+337,Nur Demir,Psikoloji,Female,4.3,44,30,WlBlSb_X
+338,İbrahim Yılmaz,Fizik,Male,3.7,31,15,tSc!Nsiw
+339,Evren Demir,Matematik,Other,4.7,8,10,S*tdp*qp
+340,Kaan Yılmaz,Bilgisayar Mühendisliği,Male,1.7,26,10,xIZa7.!3
+341,Hasan Çetin,İşletme,Male,4.2,43,70,t1odWZLk
+342,Emine Polat,Fizik,Female,2.8,2,95,lLH3oOrw
+343,Atalay Demir,Fizik,Male,3.5,7,80,WWXOZqA2
+344,Elif Polat,Medya,Female,3.8,5,85,MXpgNv-n
+345,Furkan Toktaş,Makine Mühendisliği,Male,4.8,10,55,_hdN1cCv
+346,Büşra Polat,Bilgisayar Mühendisliği,Female,4.2,3,55,pHU4n0Mq
+347,Ayşe Aydın,Medya,Female,3.3,32,75,WArXHWft
+348,Mustafa Şahin,Bilgisayar Mühendisliği,Male,3.7,10,50,d3Px0?0Q
+349,Duygu Polat,Medya,Female,2.4,17,65,TBCs7zzn
+350,Oğuz Kaya,Medya,Male,3.6,5,55,oyBmLuX3
+351,Ceren Şahin,Matematik,Female,4.9,15,80,?LFyciqv
+352,Berk Koç,Bilgisayar Mühendisliği,Male,2.3,1,90,Cay7rhDR
+353,Evren Toktaş,Fizik,Other,2.5,29,10,692puP0r
+354,Eda Aksoy,Fizik,Female,4.4,26,25,DmpP6cnc
+355,Duygu Aydın,Biyoloji,Female,3.7,10,0,4WBSXy7M
+356,Ceren Demir,İşletme,Female,3.4,12,30,RqgC6!*8
+357,Selim Aydın,Matematik,Male,3.7,7,45,TjQaI2Hw
+358,Dilara Altun,Hukuk,Female,3.7,21,45,9l0IRhTj
+359,Beren Demir,Matematik,Female,3.2,4,55,Ou6ODDG!
+360,Sibel Altun,Makine Mühendisliği,Female,4.1,30,40,a1zf41Sk
+361,Berfin Öztürk,Psikoloji,Female,4.5,10,95,Aw24-WC6
+362,Dilara Demir,Hukuk,Female,2.6,2,35,lJ8MQrw0
+363,Ozan Çetin,Matematik,Other,2.8,41,90,alnp?8ew
+364,Cem Koç,Fizik,Male,3.8,3,45,U-jQAVWZ
+365,Merve Demir,Makine Mühendisliği,Female,4.6,30,75,-fm2Ujws
+366,Ali Polat,Matematik,Male,4.9,23,25,iGG9DRHc
+367,Yıldız Şahin,Matematik,Other,3.4,4,50,9H3be!V0
+368,Gül Polat,Fizik,Female,2.5,3,5,CRQ6n69Z
+369,Fatma Yılmaz,Makine Mühendisliği,Female,4.6,4,20,ZgxBfMPG
+370,Ceren Demir,Matematik,Female,4.4,5,50,j4jQXfGA
+371,Oğuz Polat,Makine Mühendisliği,Male,2.1,50,65,PE0LjeFV
+372,Elif Kaya,Matematik,Female,0.9,17,90,Y_upkWrD
+373,Yusuf Öztürk,Psikoloji,Male,4.5,11,65,dFxnP8Vc
+374,Ege Kaya,Makine Mühendisliği,Male,4.4,1,5,bSu6EORd
+375,Zeynep Altun,Bilgisayar Mühendisliği,Female,3.7,5,50,BADB2yU!
+376,İpek Koç,Makine Mühendisliği,Female,4.6,7,0,S0K!.NjE
+377,Ege Toktaş,Biyoloji,Male,3.9,40,90,5BAD0Aos
+378,Nur Güneş,Medya,Female,3.8,26,80,i!yQu*-M
+379,Eren Şahin,Makine Mühendisliği,Male,4.4,10,55,L987t-Sv
+380,Hasan Öztürk,Fizik,Male,1.8,9,55,1VnqJt6l
+381,Mustafa Kaya,Bilgisayar Mühendisliği,Male,3.9,3,40,T7!.8tU0
+382,İbrahim Erdem,Psikoloji,Male,4.5,48,30,v5slS7a3
+383,Berfin Çelik,Biyoloji,Female,1.6,24,45,3Eu!d26-
+384,Ahmet Kaya,Matematik,Male,1.9,8,85,gmlb!.tI
+385,Osman Altun,Biyoloji,Male,4.5,8,5,-Raod9cq
+386,Ayşe Erdem,Biyoloji,Female,4.7,6,35,wHIhR5vi
+387,Ece Güneş,Matematik,Female,4.5,19,80,h8qwSmij
+388,Hüseyin Erdem,Medya,Male,3.5,20,25,LorFa3nb
+389,Ege Erdem,Matematik,Male,3.0,10,30,FG6QS6k4
+390,Berk Şahin,Biyoloji,Male,3.7,22,25,mYMupWWw
+391,Ali Çelik,Fizik,Male,3.6,23,50,37w12Ot0
+392,Arin Erdem,Biyoloji,Other,3.9,37,80,.-.Qaxpt
+393,Ceren Altun,Bilgisayar Mühendisliği,Female,3.5,39,50,CxUA.!zF
+394,Selin Aydın,Medya,Female,4.0,29,55,SY_-u.7P
+395,Yusuf Öztürk,Fizik,Male,2.5,5,5,tKTxUObh
+396,Ahmet Şahin,Fizik,Male,4.2,7,20,luPN6oNO
+397,Arin Koç,Hukuk,Other,4.7,5,90,7BAsagaF
+398,İpek Çetin,İşletme,Female,3.7,28,45,M8G.MEwe
+399,Sinemis Kaya,Medya,Female,4.3,2,40,bHLxyh8o
+400,Hasan Çelik,İşletme,Male,1.5,6,0,SP8k_WMv
+401,Furkan Koç,Makine Mühendisliği,Male,0.8,32,55,kkLrCeeo
+402,Doğa Güneş,Matematik,Other,3.1,3,30,j7.t!.Zs
+403,Arin Erdem,Bilgisayar Mühendisliği,Other,4.1,4,40,fs4mTK!o
+404,Ece Çelik,Psikoloji,Female,3.2,30,30,YhVfJdbI
+405,İpek Demir,Hukuk,Female,1.9,1,85,-.Kwxz24
+406,Selim Kaya,Psikoloji,Male,4.3,38,70,6I8pcvCn
+407,Mustafa Altun,İşletme,Male,4.5,41,95,.CUlK1?4
+408,Hatice Öztürk,Fizik,Female,3.3,3,10,rZDQqVwr
+409,Gül Çetin,Medya,Female,1.6,7,45,Bd9ijBZ7
+410,Ozan Koç,Fizik,Other,4.8,9,40,!x6HTnwL
+411,Mehmet Altun,Psikoloji,Male,1.8,28,80,J5eGchRV
+412,Mustafa Şahin,Makine Mühendisliği,Male,3.9,24,90,M1P.Kc2!
+413,Ege Öztürk,Psikoloji,Male,4.6,11,40,r*XG7hdA
+414,Havva Güneş,Makine Mühendisliği,Female,3.8,7,70,uxQsi3O5
+415,İpek Güneş,Matematik,Female,4.6,10,60,C_ZfYqpt
+416,Elif Yılmaz,Psikoloji,Female,3.3,41,10,ORP!9K-n
+417,Ahmet Toktaş,Matematik,Male,4.5,1,70,hMo9sKQY
+418,Fatma Güneş,Biyoloji,Female,2.0,11,90,qbczhA2o
+419,Hüseyin Aydın,İşletme,Male,3.6,8,45,lmZiciN0
+420,Selim Yılmaz,İşletme,Male,4.5,11,25,zx7NI6lk
+421,Büşra Polat,Hukuk,Female,3.9,24,55,Z41v4kCF
+422,Ali Polat,Makine Mühendisliği,Male,3.4,2,15,CKC4ytMs
+423,Fatma Erdem,Makine Mühendisliği,Female,3.5,32,10,RY?Ksd0x
+424,Hüseyin Toktaş,Makine Mühendisliği,Male,2.4,8,35,lxkOvlbS
+425,Ceren Şahin,İşletme,Female,3.7,10,10,9Z3Rt6IM
+426,Berfin Aydın,Biyoloji,Female,4.0,5,55,XhRtmsqH
+427,Merve Demir,Fizik,Female,3.9,9,55,lP6*zl5w
+428,Atalay Yılmaz,Bilgisayar Mühendisliği,Male,4.2,2,65,Xf7ro7QR
+429,Berk Yılmaz,Matematik,Male,3.1,45,50,WE8YYR.W
+430,Murat Altun,Medya,Male,3.2,10,30,rCDkSo5A
+431,Fatma Yılmaz,Psikoloji,Female,4.5,37,40,VFLRHZ0z
+432,Beren Yılmaz,İşletme,Female,3.9,4,50,hFvUMuOw
+433,Havva Çetin,Medya,Female,4.0,4,5,ynHR6M-k
+434,Büşra Aksoy,Fizik,Female,1.9,1,0,6AM*taSU
+435,Turan Altun,Matematik,Male,4.6,29,60,aHGSjapJ
+436,Murat Çelik,Psikoloji,Male,4.5,22,40,-?TeC1vs
+437,Ege Koç,Psikoloji,Male,4.4,7,20,QDsSxN5I
+438,Ege Yılmaz,Fizik,Male,2.9,6,95,jj-bL!CP
+439,Dilara Çetin,Bilgisayar Mühendisliği,Female,3.3,3,0,kqwuySDr
+440,Murat Demir,İşletme,Male,2.9,33,25,2axHRtwR
+441,Selim Kaya,Makine Mühendisliği,Male,1.5,3,25,ruK7aH*t
+442,Yasemin Güneş,Bilgisayar Mühendisliği,Female,3.5,7,5,ppcJ-RVw
+443,Selin Koç,Makine Mühendisliği,Female,2.5,6,60,7VwWUiRC
+444,Yusuf Çelik,Psikoloji,Male,2.4,2,20,f98XOaxP
+445,Zeynep Erdem,Medya,Female,4.1,23,35,ng0CH_dv
+446,Beren Erdem,Medya,Female,4.1,3,70,fHZBlZyE
+447,Gül Demir,Biyoloji,Female,4.8,32,20,_seP2bMU
+448,Duygu Yılmaz,Hukuk,Female,3.7,41,60,a9vhfgs4
+449,Mustafa Aksoy,Matematik,Male,2.8,18,25,faF9o?Xe
+450,Hatice Toktaş,Medya,Female,3.2,26,20,IZvztqDR
+451,Nur Erdem,Makine Mühendisliği,Female,1.6,9,55,0J9nLDa_
+452,İpek Yılmaz,İşletme,Female,2.9,9,15,GKjwaxQU
+453,Deniz Altun,Psikoloji,Other,2.0,3,50,R8GV7l7D
+454,Sinemis Koç,Fizik,Female,4.2,9,90,kW6l12U1
+455,Uğur Altun,Bilgisayar Mühendisliği,Male,1.7,32,65,4pVrwCji
+456,Eren Öztürk,İşletme,Male,1.5,2,65,A-V3jaGf
+457,Uğur Güneş,Fizik,Male,4.6,3,10,JuE.SiFH
+458,Zeynep Şahin,Bilgisayar Mühendisliği,Female,3.7,34,10,QZCSy1j7
+459,Oğuz Toktaş,İşletme,Male,2.1,1,25,cAwSvunD
+460,Beren Çetin,Fizik,Female,4.1,4,35,WEeadvOl
+461,Yasemin Toktaş,Biyoloji,Female,4.0,9,40,y8y3T!8R
+462,Ece Çetin,Hukuk,Female,1.7,23,30,zuMSoXC1
+463,Fatma Aydın,Psikoloji,Female,3.6,5,70,?juKX.y0
+464,Ozan Şahin,Matematik,Other,1.0,33,30,ujdkwkKU
+465,Murat Aksoy,İşletme,Male,3.0,36,75,S!SaDTGj
+466,Nur Öztürk,Psikoloji,Female,4.6,2,65,*CtB.bVL
+467,İpek Şahin,Hukuk,Female,3.2,4,40,pLq4FfFO
+468,Oğuz Öztürk,Psikoloji,Male,2.9,15,20,jP4k*x1c
+469,İpek Aksoy,Matematik,Female,1.3,6,45,MNpCB2t6
+470,Hüseyin Polat,Hukuk,Male,1.8,7,80,h8RiM8u_
+471,İpek Çelik,Biyoloji,Female,2.3,21,45,-YRGE?1r
+472,Sibel Toktaş,Biyoloji,Female,3.6,1,65,DLDDLOpG
+473,İbrahim Polat,Makine Mühendisliği,Male,1.0,1,55,sIhrbf2.
+474,Fatma Demir,Medya,Female,4.8,31,30,J.PBBMmD
+475,Eda Altun,Matematik,Female,2.2,8,25,a68J*Z4D
+476,Hatice Altun,İşletme,Female,1.0,37,45,5IApDSnR
+477,Hatice Demir,İşletme,Female,1.5,10,15,sDL8twXF
+478,Uğur Aksoy,Makine Mühendisliği,Male,1.2,9,10,8kh0xwqS
+479,Selin Çelik,Hukuk,Female,3.2,8,90,r4a3.AFi
+480,Ceren Kaya,Psikoloji,Female,3.6,24,35,j6WdrY!1
+481,Atalay Polat,Hukuk,Male,2.9,1,20,TaP_MV0Q
+482,Yasemin Güneş,Matematik,Female,4.0,6,0,IgLyBwPU
+483,Berfin Aksoy,Makine Mühendisliği,Female,2.1,2,50,tcU?v-zo
+484,Ayşe Demir,Medya,Female,3.3,2,75,LQ?3wmyv
+485,Hatice Koç,İşletme,Female,3.3,2,90,w6Rf46x.
+486,Emine Polat,Matematik,Female,4.3,34,50,bgEb8-8E
+487,Selin Altun,Hukuk,Female,3.9,7,95,0kHj6AZD
+488,Furkan Çelik,İşletme,Male,0.9,1,80,YnMxIALj
+489,Atalay Erdem,Medya,Male,3.7,20,70,pH5NaWEm
+490,Havva Polat,Makine Mühendisliği,Female,2.8,47,50,LiveJbyh
+491,Ayşe Yılmaz,Hukuk,Female,2.7,6,40,yKOXrfxJ
+492,Mehmet Güneş,İşletme,Male,2.4,1,60,swzUk*CS
+493,Berk Altun,Hukuk,Male,3.6,10,25,T-04O-OP
+494,Berfin Altun,Bilgisayar Mühendisliği,Female,2.6,8,65,Fgpd8L!J
+495,Selim Yılmaz,Matematik,Male,2.8,5,85,pfrL.6WU
+496,Atalay Altun,Makine Mühendisliği,Male,3.9,46,80,qqNPhzqw
+497,Büşra Demir,İşletme,Female,1.9,14,40,ty3.ejhi
+498,Zeynep Kaya,Bilgisayar Mühendisliği,Female,4.7,19,85,QjqRXm7O
+499,Berfin Toktaş,Fizik,Female,4.3,19,90,MZ_nOL33
+500,Ceren Çelik,Fizik,Female,1.1,11,90,EAxyozCS

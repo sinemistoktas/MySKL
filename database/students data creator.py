@@ -52,9 +52,10 @@ for student_id in range(1, total_students + 1):
     rating = generate_skewed_rating()
     level = generate_skewed_level()
     xp = random.choice(range(0, 100, 5))  # XP in multiples of 5 within 0-99
+    password = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*-?!_.', k=8))
 
     # Add to students
-    students.append([student_id, name, major, gender, rating, level, xp])
+    students.append([student_id, name, major, gender, rating, level, xp, password])
 
     # Determine type (Standard or Premium)
     if level <= 30:
@@ -64,7 +65,7 @@ for student_id in range(1, total_students + 1):
         premium_students.append([student_id, emoji])
 
 # Create DataFrames
-students_df = pd.DataFrame(students, columns=['StudentID', 'S_name', 'Major', 'Sex', 'Rating', 'Level', 'xp'])
+students_df = pd.DataFrame(students, columns=['StudentID', 'S_name', 'Major', 'Sex', 'Rating', 'Level', 'XP', 'Password'])
 standard_students_df = pd.DataFrame(standard_students, columns=['StudentID'])
 premium_students_df = pd.DataFrame(premium_students, columns=['StudentID', 'Emoji'])
 
