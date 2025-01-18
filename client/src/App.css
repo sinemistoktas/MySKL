@@ -1,0 +1,44 @@
+/* App.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Choose your color */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    width: 100%;
+    max-width: 375px; /* Typical phone width */
+    height: 667px; /* Typical phone height, e.g., iPhone SE */
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #add8e6; /* Optional: Different background for the app container */
+    border-radius: 10px; /* Add rounded corners if desired */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+
+
+h1 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Optional: Add a media query for extra small screens */
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}

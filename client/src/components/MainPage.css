@@ -1,0 +1,138 @@
+/* MainPage.css */
+
+/* Full-screen background in "phone" style */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: hsl(208, 100%, 97%);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Outer "phone" container */
+  .main-container {
+    width: 375px;   /* phone width */
+    height: 667px;  /* phone height */
+    background-color: #add8e6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Inner card area */
+  .main-box {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative; /* For absolutely-positioned bars if desired */
+  
+    /* We'll use absolute positioning for bars or a flex layout. 
+       Here we demonstrate absolute for bars, but you can also do flex. */
+  }
+  
+  /* ===================== */
+  /*       TOP BAR         */
+  /* ===================== */
+  .header-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;  /* bar height */
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo on left, text in center, logout on right */
+    padding: 0 10px;  /* some horizontal padding */
+    box-sizing: border-box;
+  
+    /* Round the top corners to match phone corners */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Logo (left side) */
+  .bar-logo {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+  }
+  
+  /* “Welcome, name!” text (middle) */
+  .header-greeting {
+    margin: 0;
+    flex: 1; /* Let it expand so it can center well if we adjust style below */
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  /* Logout button (right side) */
+  .logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .logout-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* ===================== */
+  /*     MIDDLE CONTENT    */
+  /* ===================== */
+  .content {
+    /* leave it blank if you want 
+       or give it a margin-top/bottom to avoid overlap with bars */
+    margin-top: 60px;   /* push content below the header bar */
+    margin-bottom: 60px;/* push above the footer bar */
+    height: calc(100% - 120px); /* total minus two bars (60px each) */
+  }
+  
+  /* ===================== */
+  /*      BOTTOM BAR       */
+  /* ===================== */
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    /* Round the bottom corners to match phone corners */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .footer-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .footer-btn:hover {
+    background-color: #45a049;
+  }
+  

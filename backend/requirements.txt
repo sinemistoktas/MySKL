@@ -2,3 +2,5 @@ Flask
 Flask-Cors
 gunicorn
 requests
+mysql-connector-python
+react-router-dom

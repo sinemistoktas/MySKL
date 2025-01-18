@@ -1,0 +1,136 @@
+/* MyProfile.css */
+
+/* Overall full-screen background in phone style */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Outer phone container */
+  .profile-container {
+    width: 375px;   /* phone width */
+    height: 667px;  /* phone height */
+    background-color: #add8e6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Inner box area */
+  .profile-box {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  /* ========== TOP BAR ========== */
+  .header-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo left, title center, logout right */
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .bar-logo {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .logout-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* ========== MIDDLE CONTENT ========== */
+  .profile-content {
+    margin-top: 60px;    /* below top bar */
+    margin-bottom: 60px; /* above bottom bar */
+    height: calc(100% - 120px); /* total minus 2 bars of 60px each */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .profile-content p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* ========== FOOTER BAR ========== */
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .footer-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .footer-btn:hover {
+    background-color: #45a049;
+  }
+  
