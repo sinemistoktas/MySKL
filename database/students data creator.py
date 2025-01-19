@@ -7,7 +7,7 @@ random.seed(14)
 # Parameters
 total_students = 500
 gender_distribution = [40, 50, 10]  # Male, Female, Other
-level_distribution = [50, 30, 20]  # Lower, Medium, Higher levels
+level_distribution = [50, 40, 10]  # Lower, Medium, Higher levels
 emoji_options = ['🔥', '🌊', '🗿', '🌀']  # Emojis for Premium Students
 
 
@@ -18,8 +18,8 @@ turkish_first_names = {
 }
 turkish_last_names = ['Yılmaz', 'Kaya', 'Demir', 'Çelik', 'Şahin', 'Koç', 'Aydın', 'Erdem', 'Polat', 'Öztürk',  "Altun", "Çetin", "Güneş", "Aksoy", "Toktaş"]
 
-# Helper function to generate skewed ratings
-def generate_skewed_rating():
+# Helper function to generate skewed user ratings
+def generate_skewed_user_rating():
     # Skew towards higher ratings with more weight on the upper end
     return round(random.triangular(0, 5, 4.5), 1)
 
@@ -49,13 +49,13 @@ for student_id in range(1, total_students + 1):
 
     # Assign other attributes
     major = random.choice(['Bilgisayar Mühendisliği', 'Makine Mühendisliği', 'Matematik', 'Fizik', 'Biyoloji', 'İşletme', 'Medya', 'Psikoloji', 'Hukuk'])
-    rating = generate_skewed_rating()
+    user_rating = generate_skewed_user_rating()
     level = generate_skewed_level()
     xp = random.choice(range(0, 100, 5))  # XP in multiples of 5 within 0-99
     password = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*-?!_.', k=8))
 
     # Add to students
-    students.append([student_id, name, major, gender, rating, level, xp, password])
+    students.append([student_id, name, major, gender, user_rating, level, xp, password])
 
     # Determine type (Standard or Premium)
     if level <= 30:
@@ -65,7 +65,7 @@ for student_id in range(1, total_students + 1):
         premium_students.append([student_id, emoji])
 
 # Create DataFrames
-students_df = pd.DataFrame(students, columns=['StudentID', 'S_name', 'Major', 'Sex', 'Rating', 'Level', 'XP', 'Password'])
+students_df = pd.DataFrame(students, columns=['StudentID', 'S_name', 'Major', 'Sex', 'userRating', 'Level', 'XP', 'Password'])
 standard_students_df = pd.DataFrame(standard_students, columns=['StudentID'])
 premium_students_df = pd.DataFrame(premium_students, columns=['StudentID', 'Emoji'])
 
@@ -100,15 +100,15 @@ students_csv_path, standard_students_csv_path, premium_students_csv_path
 # )
 
 # # Rating distribution with narrower bins
-# students_df["Rating"].plot(
+# students_df["userRating"].plot(
 #     kind="hist", 
 #     bins=20, 
 #     ax=axes[0, 1], 
-#     title="Rating Distribution",
+#     title="Student Rating Distribution",
 #     edgecolor="black",
 #     linewidth=1.2
 # )
-# axes[0, 1].set_xlabel("Rating")
+# axes[0, 1].set_xlabel("Student Rating")
 # axes[0, 1].set_ylabel("Frequency")
 
 # # Level distribution with narrower bins

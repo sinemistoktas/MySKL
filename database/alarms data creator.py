@@ -1,4 +1,3 @@
-# Re-import libraries and reset environment
 import pandas as pd
 import random
 from datetime import datetime, timedelta
@@ -24,37 +23,19 @@ def generate_random_datetime():
     random_minute = random.randint(0, 59)
     return random_date.replace(hour=random_hour, minute=random_minute, second=0, microsecond=0)
 
-# Generate alarms with senderID and AlertTime only
+# Generate Alarms data
 alarms = []
+
 for _ in range(num_alarms):
     sender_id = random.choice(premium_student_ids)  # Random PremiumStudent ID as sender
     alert_time = generate_random_datetime()  # Random alert time
-    alarms.append([sender_id, alert_time])
+    alarms.append([sender_id, alert_time])  # Add to Alarms table
 
-# Create DataFrame and save to CSV
+# Create DataFrame
 alarms_df = pd.DataFrame(alarms, columns=["senderID", "AlertTime"])
+
+# Save to CSV file
 alarms_csv_path = "alarms.csv"
 alarms_df.to_csv(alarms_csv_path, index=False)
 
-alarms_csv_path
-
-
-
-# # # # attribute distribution visualization
-# import matplotlib.pyplot as plt
-
-# # Extract the hour from the AlertTime column
-# alarms_df["Hour"] = pd.to_datetime(alarms_df["AlertTime"]).dt.hour
-
-# # Count the frequency of each hour
-# hourly_distribution = alarms_df["Hour"].value_counts().sort_index()
-
-# # Visualize the hourly distribution
-# plt.figure(figsize=(10, 6))
-# hourly_distribution.plot(kind="bar", color="skyblue", edgecolor="black")
-# plt.title("Frequency of Alarms by Hour", fontsize=14)
-# plt.xlabel("Hour of the Day", fontsize=12)
-# plt.ylabel("Number of Alarms", fontsize=12)
-# plt.xticks(rotation=0)
-# plt.grid(axis="y", linestyle="--", alpha=0.7)
-# plt.show()
+print(f"Alarms data saved to {alarms_csv_path}")

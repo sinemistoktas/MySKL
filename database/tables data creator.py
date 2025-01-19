@@ -14,13 +14,13 @@ def generate_table_data(table_id_start, count, floor_number, has_plug_distributi
     subclass_data = []
     table_id = table_id_start
     for _ in range(count):
-        has_plug = random.choices([True, False], weights=has_plug_distribution, k=1)[0] # Random "HasComputer" for TableForOne
-        image = random.choices(list(image_distribution.keys()), weights=list(image_distribution.values()), k=1)[0] # Random "Image" for TableForOne
-        data.append([table_id, floor_number, image, has_plug, table_type])
+        has_plug = random.choices([True, False], weights=has_plug_distribution, k=1)[0]
+        image = random.choices(list(image_distribution.keys()), weights=list(image_distribution.values()), k=1)[0]
+        data.append([table_id, floor_number, image, has_plug])
 
         # Subclass-specific data
         if table_type == "One":
-            subclass_data.append([table_id, random.choices([True, False], weights=[20, 80], k=1)[0]])  # Random "HasComputer" for TableForOne
+            subclass_data.append([table_id, random.choices([True, False], weights=[20, 80], k=1)[0]])  # Random HasComputer
         elif table_type == "Four":
             subclass_data.append([table_id])  # No additional fields for TableForFour
 
@@ -34,12 +34,21 @@ table_for_four_data = []
 
 table_id = 1
 
-# Floor -1 (30 single tables)
+# Floor -1 (25 single tables, 5 four tables)
+
+# Generate 25 single tables
 data, subclass_data, table_id = generate_table_data(
-    table_id, 30, -1, [100, 0], {"cubicle.jpg": 100}, "One"
+    table_id, 25, -1, [100, 0], {"cubicle.jpg": 100}, "One"
 )
 table_data.extend(data)
 table_for_one_data.extend(subclass_data)
+
+# Generate 5 quadruple tables
+data, subclass_data, table_id = generate_table_data(
+    table_id, 5, -1, [0, 100], {"common-table.jpg": 100}, "Four"
+)
+table_data.extend(data)
+table_for_four_data.extend(subclass_data)
 
 # Floor 0 (20 single tables, 10 quadruple tables)
 data, subclass_data, table_id = generate_table_data(
@@ -81,20 +90,21 @@ table_data.extend(data)
 table_for_four_data.extend(subclass_data)
 
 # Creating DataFrames
-table_df = pd.DataFrame(table_data, columns=["TableID", "FloorNumber", "Image", "HasPlug", "TableType"])
+table_df = pd.DataFrame(table_data, columns=["TableID", "FloorNumber", "Image", "HasPlug"])
 table_for_one_df = pd.DataFrame(table_for_one_data, columns=["TableID", "HasComputer"])
 table_for_four_df = pd.DataFrame(table_for_four_data, columns=["TableID"])
 
 # Saving to CSV files
-table_csv_path = "table.csv"
-table_for_one_csv_path = "table_for_one.csv"
-table_for_four_csv_path = "table_for_four.csv"
+table_csv_path = "tables.csv"
+table_for_one_csv_path = "tables_for_one.csv"
+table_for_four_csv_path = "tables_for_four.csv"
 
 table_df.to_csv(table_csv_path, index=False)
 table_for_one_df.to_csv(table_for_one_csv_path, index=False)
 table_for_four_df.to_csv(table_for_four_csv_path, index=False)
 
 table_csv_path, table_for_one_csv_path, table_for_four_csv_path
+
 
 
 # # attribute distribution visualization
