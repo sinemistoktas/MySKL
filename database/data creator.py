@@ -58,16 +58,23 @@ def generate_random_datetime(startTime=0, endTime=23, start_of_hour=False):
 
 # Dataset Generators
 def create_tables():
-    """Generate table data."""
-    # Helper function to generate table data
-    def generate_table_data(table_id_start, count, floor_number, has_plug_distribution, image_distribution, table_type):
+    """Generate table data with TableNum and formatted TableID."""
+
+    def generate_table_data(floor_number, num_tables_start, num_tables_end, has_plug_distribution, image_distribution, table_type):
+        """
+        Generate table data for a specific floor, ensuring custom TableID format.
+        """
         data = []
         subclass_data = []
-        table_id = table_id_start
-        for _ in range(count):
+
+        for table_num in range(num_tables_start, num_tables_end + 1):  # Start tableNum from 1 for each floor
+            # Generate custom TableID
+            table_id = f"{abs(floor_number):02d}{table_num:02d}"  # Format: FloorNumber + tableNum
+
+            # Assign table attributes
             has_plug = random.choices([True, False], weights=has_plug_distribution, k=1)[0]
             image = random.choices(list(image_distribution.keys()), weights=list(image_distribution.values()), k=1)[0]
-            data.append([table_id, floor_number, image, has_plug])
+            data.append([table_id, table_num, floor_number, image, has_plug])
 
             # Subclass-specific data
             if table_type == "One":
@@ -75,75 +82,57 @@ def create_tables():
             elif table_type == "Four":
                 subclass_data.append([table_id])  # No additional fields for TableForFour
 
-            table_id += 1
-        return data, subclass_data, table_id
+        return data, subclass_data
 
     # Generating data for tables
     table_data = []
     table_for_one_data = []
     table_for_four_data = []
 
-    table_id = 1
-
-    # Floor -1 (25 single tables, 5 four tables)
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 25, -1, [100, 0], {"cubicle.jpg": 100}, "One"
-    )
+    # Floor 0 (Total 30 -> 25 single tables, 5 four tables)
+    data, subclass_data = generate_table_data(0, 1, 25, [100, 0], {"cubicle.jpg": 100}, "One")
     table_data.extend(data)
     table_for_one_data.extend(subclass_data)
 
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 5, -1, [0, 100], {"common-table.jpg": 100}, "Four"
-    )
+    data, subclass_data = generate_table_data(0, 26, 30, [0, 100], {"common-table.jpg": 100}, "Four")
     table_data.extend(data)
     table_for_four_data.extend(subclass_data)
 
-    # Floor 0 (20 single tables, 10 quadruple tables)
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 20, 0, [50, 50], {"cubicle.jpg": 70, "common-table.jpg": 30}, "One"
-    )
+    # Floor 1 (Total 30 ->20 single tables, 10 quadruple tables)
+    data, subclass_data = generate_table_data(1, 1, 20, [50, 50], {"cubicle.jpg": 70, "common-table.jpg": 30}, "One")
     table_data.extend(data)
     table_for_one_data.extend(subclass_data)
 
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 10, 0, [0, 100], {"square.jpg": 60, "rectangle.jpg": 40}, "Four"
-    )
+    data, subclass_data = generate_table_data(1, 21, 30, [0, 100], {"square.jpg": 60, "rectangle.jpg": 40}, "Four")
     table_data.extend(data)
     table_for_four_data.extend(subclass_data)
 
-    # Floor 1 (40 single tables, 10 quadruple tables)
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 40, 1, [75, 25], {"cubicle.jpg": 80, "common-table.jpg": 20}, "One"
-    )
+    # Floor 2 (Total 50 -> 40 single tables, 10 quadruple tables)
+    data, subclass_data = generate_table_data(2, 1, 40, [75, 25], {"cubicle.jpg": 80, "common-table.jpg": 20}, "One")
     table_data.extend(data)
     table_for_one_data.extend(subclass_data)
 
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 10, 1, [100, 0], {"square.jpg": 90, "rectangle.jpg": 10}, "Four"
-    )
+    data, subclass_data = generate_table_data(2, 41, 50, [100, 0], {"square.jpg": 90, "rectangle.jpg": 10}, "Four")
     table_data.extend(data)
     table_for_four_data.extend(subclass_data)
 
-    # Floor 2 (30 single tables, 20 quadruple tables)
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 30, 2, [33, 67], {"with-computer.jpg": 33, "common-table.jpg": 44, "cubicle.jpg": 22}, "One"
-    )
+    # Floor 3 (Total 50 -> 30 single tables, 20 quadruple tables)
+    data, subclass_data = generate_table_data(3, 1, 30, [33, 67], {"with-computer.jpg": 33, "common-table.jpg": 44, "cubicle.jpg": 22}, "One")
     table_data.extend(data)
     table_for_one_data.extend(subclass_data)
 
-    data, subclass_data, table_id = generate_table_data(
-        table_id, 20, 2, [50, 50], {"rectangle.jpg": 70, "square.jpg": 30}, "Four"
-    )
+    data, subclass_data = generate_table_data(3, 31, 50, [50, 50], {"rectangle.jpg": 70, "square.jpg": 30}, "Four")
     table_data.extend(data)
     table_for_four_data.extend(subclass_data)
 
     # Create DataFrames
-    tables_df = pd.DataFrame(table_data, columns=["TableID", "FloorNumber", "Image", "HasPlug"])
+    tables_df = pd.DataFrame(table_data, columns=["TableID", "TableNum", "FloorNumber", "Image", "HasPlug"])
     tables_for_one_df = pd.DataFrame(table_for_one_data, columns=["TableID", "HasComputer"])
     tables_for_four_df = pd.DataFrame(table_for_four_data, columns=["TableID"])
 
     print("Tables data created.")
-    return tables_df, tables_for_one_df, tables_for_four_df  
+    return tables_df, tables_for_one_df, tables_for_four_df
+
 
 def create_students():
     """Generate student data."""
