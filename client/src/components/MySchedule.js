@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MySchedule.css";
-import logo from "./MySKL_Logo.png";
+import logo from "../assets/MySKL_Logo.png";
 
 function MySchedule() {
   const [user, setUser] = useState(null);

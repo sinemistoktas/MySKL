@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginSignup.css";
-import logo from "./MySKL_Logo.png";
+import logo from "../assets/MySKL_Logo.png";
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);

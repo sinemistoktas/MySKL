@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
-import logo from "./MySKL_Logo.png"; // Adjust this path to your actual logo file
+import logo from "../assets/MySKL_Logo.png";
 
 function MainPage() {
   const [user, setUser] = useState(null);
