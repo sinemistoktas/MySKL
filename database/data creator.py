@@ -11,7 +11,7 @@ random.seed(14)
 
 num_students = 500
 
-num_alarms = 70
+num_alarms = 80
 date_range_days = 30 # Past 30 days
 min_hours = 10  # Start of slot 1 -> 10.00 
 max_hours = 18  # Start of slot 8 -> 18.00 
