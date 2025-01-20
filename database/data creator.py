@@ -6,17 +6,18 @@ from datetime import datetime, timedelta
 random.seed(14)
 
 # Global Parameters
-num_tables = 100
+# num_tables = 200 
+# num_floors = 4
 
 num_students = 500
 
-num_alarms = 40
+num_alarms = 70
 date_range_days = 30 # Past 30 days
 min_hours = 10  # Start of slot 1 -> 10.00 
 max_hours = 18  # Start of slot 8 -> 18.00 
 fixed_start_date = datetime(2025, 2, 1)  # Fixed reference date
 slots_per_day = 8
-num_agreements = 30
+num_agreements = 40
 num_additional_schedules = 40 # Number of additional schedules to generate
 
 
@@ -36,23 +37,23 @@ def generate_random_date():
     random_date = fixed_start_date - timedelta(days=random.randint(0, date_range_days))
     return random_date.date()
 
-def generate_random_time(startTime=0, endTime=23, start_of_hour=False):
+def generate_random_time(startTime=0, endTime=23):
     """
     Generate a random time within a specified range.
         * start_of_hour (bool): If True, minute is always 0. 
                                 If False, minute is a random value between 0-59.
     """
     random_hour = random.randint(startTime, endTime)
-    random_minute = 0 if start_of_hour else random.randint(0, 59)
+    random_minute = random.randint(0, 59)
     return datetime.min.time().replace(hour=random_hour, minute=random_minute, second=0, microsecond=0)
 
-def generate_random_datetime(startTime=0, endTime=23, start_of_hour=False):
+def generate_random_datetime(startTime=0, endTime=23):
     """
     Generate a random datetime within range by combine random date and time into a datetime object.
         * start_of_hour (bool): Controls whether time should be at the start of the hour.
     """
     random_date = generate_random_date()
-    random_time = generate_random_time(startTime=startTime, endTime=endTime, start_of_hour=start_of_hour)
+    random_time = generate_random_time(startTime=startTime, endTime=endTime)
     return datetime.combine(random_date, random_time)
     
 
@@ -226,10 +227,8 @@ def create_agreements_and_schedules(student_ids, table_ids):
         # Assign a table to the ratee based on the rator's table ownership
         ratee_table_id = None if rator_table_id else random.choice(table_ids) # ratee has table if rator doesn't have one
 
-        # Generate CreatedDate and AgrDate
-        created_date = generate_random_datetime()
-        agr_date = created_date + timedelta(days=random.randint(0, 5)) # AgrDate can be up to 5 days after CreatedDate
-        agr_date = datetime.combine(agr_date.date(), generate_random_time(startTime=min_hours, endTime=max_hours, start_of_hour=True)) # agr times are at slot beginnings -> start of hours
+        # Generate AgrDate
+        agr_date = generate_random_date()
 
         # Generate random consecutive slots for the agreement
         start_slot = random.randint(0, slots_per_day - 1)  # Random start point
@@ -243,12 +242,12 @@ def create_agreements_and_schedules(student_ids, table_ids):
         # Create two agreement rows (rator and ratee perspectives)
         agr_rate_rator = random.randint(*ratings_range)
         agr_rate_ratee = random.randint(*ratings_range)
-        agreements.append([rator_id, ratee_id, rator_table_id, agr_rate_rator, created_date, agr_date] + rator_slots)
-        agreements.append([ratee_id, rator_id, ratee_table_id, agr_rate_ratee, created_date, agr_date] + ratee_slots)
+        agreements.append([rator_id, ratee_id, rator_table_id, agr_rate_rator, agr_date])
+        agreements.append([ratee_id, rator_id, ratee_table_id, agr_rate_ratee, agr_date])
 
         # Add schedules for rator and ratee
-        schedules.append([rator_id, agr_date.date(), rator_table_id] + rator_slots)
-        schedules.append([ratee_id, agr_date.date(), ratee_table_id] + ratee_slots)
+        schedules.append([rator_id, agr_date, rator_table_id] + rator_slots)
+        schedules.append([ratee_id, agr_date, ratee_table_id] + ratee_slots)
     
     ### Generate more schedule data
     for _ in range(num_additional_schedules):
@@ -264,7 +263,7 @@ def create_agreements_and_schedules(student_ids, table_ids):
         schedules.append([std_id, date, table_id] + slots)
 
     # Create agreements and schedules DataFrames
-    agreements_df = pd.DataFrame(agreements, columns=["ratorID", "rateeID", "TableID", "AgrRate", "CreatedDate", "AgrDate"] + [f"Slot_{i}" for i in range(1, slots_per_day + 1)])
+    agreements_df = pd.DataFrame(agreements, columns=["ratorID", "rateeID", "TableID", "AgrRate", "AgrDate"])
     schedules_df = pd.DataFrame(schedules, columns=["StudentID", "Date", "TableID"] + [f"Slot_{i}" for i in range(1, slots_per_day + 1)])
 
     print("Agreements data created.")
