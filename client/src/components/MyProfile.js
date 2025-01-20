@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MyProfile.css";
-import logo from "./MySKL_Logo.png"; // Adjust the path to your logo
+import logo from "../assets/MySKL_Logo.png";
 
 function MyProfile() {
   const [user, setUser] = useState(null);
