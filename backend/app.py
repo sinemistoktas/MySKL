@@ -2,19 +2,24 @@ from flask import Flask, send_from_directory, jsonify, request
 import mysql.connector
 from flask_cors import CORS
 
+# Database connection function
+from db_connection import get_connection
 
 app = Flask(__name__, static_folder='../client/build')
 CORS(app)
 
-# Database connection function
-def get_connection():
-    connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Comp306Eren",  # Replace with your MySQL password
-        database="MySKL1"  # Replace with your database name
-    )
-    return connection
+database_name = 'MYSKL2'
+
+connection = get_connection(database_name)
+
+# def get_connection():
+#     connection = mysql.connector.connect(
+#         host="localhost",
+#         user="root",
+#         password="Comp306Eren",  # Replace with your MySQL password
+#         database="MySKL1"  # Replace with your database name
+#     )
+#     return connection
 
 # Serve the React app
 @app.route('/', methods=['GET'])

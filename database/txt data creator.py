@@ -1,6 +1,7 @@
 import pandas as pd
 import random
 from datetime import datetime, timedelta
+import os
 
 # Set random seed for reproducibility
 random.seed(14)
@@ -73,13 +74,13 @@ def create_tables():
             table_id = f"{abs(floor_number):02d}{table_num:02d}"  # Format: FloorNumber + tableNum
 
             # Assign table attributes
-            has_plug = random.choices([True, False], weights=has_plug_distribution, k=1)[0]
+            has_plug = random.choices([1, 0], weights=has_plug_distribution, k=1)[0] # 1->True, 0->False
             image = random.choices(list(image_distribution.keys()), weights=list(image_distribution.values()), k=1)[0]
             data.append([table_id, table_num, floor_number, image, has_plug])
 
             # Subclass-specific data
             if table_type == "One":
-                subclass_data.append([table_id, random.choices([True, False], weights=[20, 80], k=1)[0]])  # Random HasComputer
+                subclass_data.append([table_id, random.choices([1, 0], weights=[20, 80], k=1)[0]])  # Random HasComputer
             elif table_type == "Four":
                 subclass_data.append([table_id])  # No additional fields for TableForFour
 
@@ -131,7 +132,7 @@ def create_tables():
     tables_for_one_df = pd.DataFrame(table_for_one_data, columns=["TableID", "HasComputer"])
     tables_for_four_df = pd.DataFrame(table_for_four_data, columns=["TableID"])
 
-    print("Tables data created.")
+    print(f"Tables data created. Numbers: {len(tables_df)} tables, {len(tables_for_one_df)} tablesforone, {len(tables_for_four_df)} tablesforfour")
     return tables_df, tables_for_one_df, tables_for_four_df
 
 
@@ -145,7 +146,7 @@ def create_students():
     }
     turkish_last_names = ['Yılmaz', 'Kaya', 'Demir', 'Çelik', 'Şahin', 'Koç', 'Aydın', 'Erdem', 'Polat', 'Öztürk',  "Altun", "Çetin", "Güneş", "Aksoy", "Toktaş"]
 
-    emoji_options = ['🔥', '🌊', '🗿', '🌀']
+    emoji_options = ['fire', 'water', 'earth', 'air'] # ['🔥', '🌊', '🗿', '🌀']
 
     majors = ['Bilgisayar Mühendisliği', 'Makine Mühendisliği', 'Matematik', 'Fizik', 'Biyoloji', 'İşletme', 'Medya', 'Psikoloji', 'Hukuk']
 
@@ -175,11 +176,11 @@ def create_students():
             premium_students.append([student_id, random.choice(emoji_options)])
 
     # Create DataFrames
-    students_df = pd.DataFrame(students, columns=['StudentID', 'Sname', 'Major', 'Gender', 'StRating', 'Level', 'XP', 'Password'])
+    students_df = pd.DataFrame(students, columns=['StudentID', 'Stname', 'Major', 'Gender', 'StRating', 'Level', 'XP', 'Password'])
     standard_students_df = pd.DataFrame(standard_students, columns=['StudentID'])
     premium_students_df = pd.DataFrame(premium_students, columns=['StudentID', 'Emoji'])
 
-    print("Students data created.")
+    print(f"Students data created. Numbers: {len(students_df)} students, {len(standard_students_df)} standard students, {len(premium_students_df)} premium students")
     return students_df, standard_students_df, premium_students_df    
 
 def create_alarms(premium_students_df):
@@ -193,8 +194,9 @@ def create_alarms(premium_students_df):
         alert_time = generate_random_datetime(startTime=min_hours, endTime=max_hours)  # Random alert time between working hours 10.00 - 18.00
         alarms.append([sender_id, alert_time])  # Add to Alarms table
     
-    print("Alarms data created.")
-    return pd.DataFrame(alarms, columns=["senderID", "AlertTime"])
+    alarms_df = pd.DataFrame(alarms, columns=["senderID", "AlertTime"])
+    print(f"Alarms data created. Numbers: {len(alarms_df)} alarms")
+    return alarms_df
 
 def create_agreements_and_schedules(student_ids, table_ids):
     """Generate agreement data."""
@@ -242,9 +244,13 @@ def create_agreements_and_schedules(student_ids, table_ids):
         # Create two agreement rows (rator and ratee perspectives)
         agr_rate_rator = random.randint(*ratings_range)
         agr_rate_ratee = random.randint(*ratings_range)
-        agreements.append([rator_id, ratee_id, rator_table_id, agr_rate_rator, agr_date])
-        agreements.append([ratee_id, rator_id, ratee_table_id, agr_rate_ratee, agr_date])
+        agreements.append([rator_id, ratee_id, rator_table_id or ratee_table_id, agr_rate_rator, agr_date])
+        agreements.append([ratee_id, rator_id, rator_table_id or ratee_table_id, agr_rate_ratee, agr_date])
 
+        # Save table_id as itself if its not None or as 0000
+        rator_table_id = rator_table_id if rator_table_id else '0000'
+        ratee_table_id = ratee_table_id if ratee_table_id else '0000'
+        
         # Add schedules for rator and ratee
         schedules.append([rator_id, agr_date, rator_table_id] + rator_slots)
         schedules.append([ratee_id, agr_date, ratee_table_id] + ratee_slots)
@@ -258,7 +264,7 @@ def create_agreements_and_schedules(student_ids, table_ids):
                 break  # Exit the loop when a new stundent is found
 
         date = generate_random_date() # create random date 
-        table_id = random.choice(table_ids) if random.random() < 0.5 else None # has a table with 50% chance 
+        table_id = random.choice(table_ids) if random.random() < 0.5 else '0000' # has a table with 50% chance, 0000 -> is used as NULL
         slots = [random.randint(0, 1) for _ in range(slots_per_day)] # generate random slots 
         schedules.append([std_id, date, table_id] + slots)
 
@@ -266,14 +272,15 @@ def create_agreements_and_schedules(student_ids, table_ids):
     agreements_df = pd.DataFrame(agreements, columns=["ratorID", "rateeID", "TableID", "AgrRate", "AgrDate"])
     schedules_df = pd.DataFrame(schedules, columns=["StudentID", "Date", "TableID"] + [f"Slot_{i}" for i in range(1, slots_per_day + 1)])
 
-    print("Agreements data created.")
-    print("Schedules data created.")
+    print(f"Agreements data created. Numbers: {len(agreements_df)} agreements")
+    print(f"Schedules data created. Numbers: {len(schedules_df)} schedules")
     return agreements_df, schedules_df
 
 
 # Execution and Saving Function
 def mother():
     """Generate and save all datasets."""
+    print("----- Running table creation -----")
     tables_df, tables_for_one_df, tables_for_four_df = create_tables()
     students_df, standard_students_df, premium_students_df = create_students()
     alarms_df = create_alarms(premium_students_df)
@@ -282,17 +289,34 @@ def mother():
     table_ids = tables_df["TableID"].tolist() 
     agreements_df, schedules_df = create_agreements_and_schedules(student_ids, table_ids)
     
-    tables_df.to_csv("tables.csv", index=False)
-    tables_for_one_df.to_csv("tables_for_one.csv", index=False)
-    tables_for_four_df.to_csv("tables_for_four.csv", index=False)
-    students_df.to_csv("students.csv", index=False)
-    standard_students_df.to_csv("standard_students.csv", index=False)
-    premium_students_df.to_csv("premium_students.csv", index=False)
-    alarms_df.to_csv("alarms.csv", index=False)
-    agreements_df.to_csv("agreements.csv", index=False)
-    schedules_df.to_csv("schedules.csv", index=False)    
+    # # Check for NaN values in each column
+    # df = schedules_df
+    # columns_with_nan = df.columns[df.isna().any()].tolist()
+    # print("Columns with NaN values:", columns_with_nan)
 
-    print("❤︎ ❤︎ ❤︎ All datasets created and saved as csv. ❤︎ ❤︎ ❤︎")
+    # Directory where this script is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # schedules_df = schedules_df.where(pd.notnull(schedules_df), None)
+    df=schedules_df
+    total_missing_values = df.isnull().sum().sum()
+    print(f"Total missing values: {total_missing_values}")
+
+
+
+
+    # Save datasets to the database directory
+    tables_df.to_csv(os.path.join(current_dir, "tables.txt"), sep='\t', index=False)
+    tables_for_one_df.to_csv(os.path.join(current_dir, "tables_for_one.txt"), sep='\t', index=False)
+    tables_for_four_df.to_csv(os.path.join(current_dir, "tables_for_four.txt"), sep='\t', index=False)
+    students_df.to_csv(os.path.join(current_dir, "students.txt"), sep='\t', index=False)
+    standard_students_df.to_csv(os.path.join(current_dir, "standard_students.txt"), sep='\t', index=False)
+    premium_students_df.to_csv(os.path.join(current_dir, "premium_students.txt"), sep='\t', index=False)
+    alarms_df.to_csv(os.path.join(current_dir, "alarms.txt"), sep='\t', index=False)
+    agreements_df.to_csv(os.path.join(current_dir, "agreements.txt"), sep='\t', index=False)
+    schedules_df.to_csv(os.path.join(current_dir, "schedules.txt"), sep='\t', index=False)  
+      
+
 
 if __name__ == "__main__":
     mother()

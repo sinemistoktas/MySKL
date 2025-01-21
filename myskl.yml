@@ -1,14 +1,17 @@
 name: myskl
+channels:
+  - conda-forge
 dependencies:
   - python>=3.5
   - pip
-  - pip:
-    - flask
-    - flask-mysql
-    - flask-cors
-    - flask-restful
-    - flask-wtf
-    - mysql-connector-python
-    - flask-sqlalchemy
-    - pandas
-    - matplotlib
+  - mysql
+  - flask
+  - flask-cors
+  - flask-restful
+  - flask-wtf
+  - mysql-connector-python
+  - flask-sqlalchemy
+  - pandas
+  - gunicorn
+  - requests
+  - npm
