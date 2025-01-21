@@ -94,6 +94,7 @@ Thumbs.db
 # Cython debug symbols
 cython_debug/
 
-# npm installed files
+# npm's node modules
 node_modules/
+client/node_modules/
 
