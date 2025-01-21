@@ -93,3 +93,8 @@ Thumbs.db
 
 # Cython debug symbols
 cython_debug/
+
+# npm's node modules
+node_modules/
+client/node_modules/
+
