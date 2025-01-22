@@ -7,7 +7,7 @@ import os
 random.seed(14)
 
 # Global Parameters
-# num_tables = 200 
+# num_tables = 160 
 # num_floors = 4
 
 num_students = 500
@@ -15,7 +15,7 @@ num_students = 500
 num_alarms = 80
 date_range_days = 7 # Past 7 days
 min_hours = 10  # Start of slot 1 -> 10.00 
-max_hours = 18  # Start of slot 8 -> 18.00 
+max_hours = 17  # Start of slot 8 -> 17.00
 fixed_start_date = datetime(2025, 1, 24)  # Fixed reference date
 slots_per_day = 8
 num_agreements = 40
@@ -148,7 +148,7 @@ def create_students():
 
     emoji_options = ['fire', 'water', 'earth', 'air'] # ['🔥', '🌊', '🗿', '🌀']
 
-    majors = ['Bilgisayar Mühendisliği', 'Makine Mühendisliği', 'Matematik', 'Fizik', 'Biyoloji', 'İşletme', 'Medya', 'Psikoloji', 'Hukuk']
+    majors = ['Comp', 'Mech', 'Math', 'Physics', 'Biology', 'Business', 'MAVA', 'Psyc', 'Law']
 
     students, standard_students, premium_students = [], [], []
 

@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder='../client/build')
 CORS(app)
 
 # Global parameters
-password = "Comp306Eren"  # Replace with your MySQL root password
+password = "*comp*306*st*"  # Replace with your MySQL root password
 database_name = "MySKL1"  # Replace with your database name
 
 # Create a single connection at the start
@@ -276,6 +276,57 @@ def create_agreement():
     except Exception as e:
         print(f"General Error: {e}")
         return jsonify({'error': str(e)}), 500
+
+@app.route('/available-table', methods=['GET'])
+def get_available_table():
+    try:
+        connection = get_connection(password, database_name)
+        cursor = connection.cursor(dictionary=True)
+
+        query = """
+        SELECT td.TableID,td.TableNum, td.FloorNumber, td.HasPlug, td.Image,
+        s.StudentID AS CurrentUser, st.StName AS UserName,
+        CASE
+        WHEN sch.Slot_1 = 1 THEN '10-11'
+        WHEN sch.Slot_2 = 1 THEN '11-12'
+        WHEN sch.Slot_3 = 1 THEN '12-13'
+        WHEN sch.Slot_4 = 1 THEN '13-14'
+        WHEN sch.Slot_5 = 1 THEN '14-15'
+        WHEN sch.Slot_6 = 1 THEN '15-16'
+        WHEN sch.Slot_7 = 1 THEN '16-17'
+        WHEN sch.Slot_8 = 1 THEN '17-18'
+        ELSE NULL
+        END AS OccupiedTimeSlot
+        FROM TableDetails td LEFT JOIN Schedules sch
+        ON td.TableID = sch.TableID LEFT JOIN 
+        Students st ON sch.StudentID = st.StudentID
+        WHERE td.TableID NOT IN (
+        SELECT TableID FROM Schedules
+        WHERE Date = CURDATE() AND (
+        (HOUR(NOW()) BETWEEN 10 AND 11 AND Slot_1 = 1) OR
+        (HOUR(NOW()) BETWEEN 11 AND 12 AND Slot_2 = 1) OR
+        (HOUR(NOW()) BETWEEN 12 AND 13 AND Slot_3 = 1) OR
+        (HOUR(NOW()) BETWEEN 13 AND 14 AND Slot_4 = 1) OR
+        (HOUR(NOW()) BETWEEN 14 AND 15 AND Slot_5 = 1) OR
+        (HOUR(NOW()) BETWEEN 15 AND 16 AND Slot_6 = 1) OR
+        (HOUR(NOW()) BETWEEN 16 AND 17 AND Slot_7 = 1) OR
+        (HOUR(NOW()) BETWEEN 17 AND 18 AND Slot_8 = 1)))
+        ORDER BY td.TableNum ASC
+        LIMIT 1;
+        """
+        cursor.execute(query)
+        result = cursor.fetchone()
+        cursor.close()
+        connection.close()
+
+        if result:
+            return jsonify({'success': True, 'table': result}), 200
+        else:
+            return jsonify({'success': False, 'message': 'No available tables found'}), 404
+
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
