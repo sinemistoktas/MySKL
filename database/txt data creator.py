@@ -7,7 +7,7 @@ import os
 random.seed(14)
 
 # Global Parameters
-# num_tables = 200 
+# num_tables = 160 
 # num_floors = 4
 
 num_students = 500
