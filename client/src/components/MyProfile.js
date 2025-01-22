@@ -37,7 +37,7 @@ function MyProfile() {
     StName, // Updated key for name
     Major,
     Gender,
-    stRating,
+    StRating,
     Level,
     XP,
   } = user;
@@ -61,7 +61,7 @@ function MyProfile() {
           <p><strong>Student ID:</strong> {StudentID}</p>
           <p><strong>Major:</strong> {Major}</p>
           <p><strong>Gender:</strong> {Gender}</p>
-          <p><strong>Rating:</strong> {stRating ?? "N/A"}</p>
+          <p><strong>Rating:</strong> {StRating ?? "N/A"}</p>
           <p><strong>Level:</strong> {Level ?? "N/A"}</p>
           <p><strong>XP:</strong> {XP ?? "N/A"}</p>
         </div>

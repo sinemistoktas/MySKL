@@ -148,7 +148,7 @@ def create_students():
 
     emoji_options = ['fire', 'water', 'earth', 'air'] # ['🔥', '🌊', '🗿', '🌀']
 
-    majors = ['Bilgisayar Mühendisliği', 'Makine Mühendisliği', 'Matematik', 'Fizik', 'Biyoloji', 'İşletme', 'Medya', 'Psikoloji', 'Hukuk']
+    majors = ['Comp', 'Mech', 'Math', 'Physics', 'Biology', 'Business', 'MAVA', 'Psyc', 'Law']
 
     students, standard_students, premium_students = [], [], []
 

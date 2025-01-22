@@ -12,9 +12,7 @@ sys.path.append(backend_dir)
 from db_connection import get_connection
 
 ## Global parameters (same ones are used in app.py)
-# Define your database parameters
-# # Get SQL connection password from user
-#password = input("Enter your root user's password for the SQL connection: ").strip()
+# Database parameters
 password = "*comp*306*st*"  # Replace with your MySQL root password
 database_name = "MySKL1" # Replace with your database name
 

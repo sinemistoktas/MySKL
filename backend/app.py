@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder='../client/build')
 CORS(app)
 
 # Global parameters
-password = "Comp306Eren"  # Replace with your MySQL root password
+password = "*comp*306*st*"  # Replace with your MySQL root password
 database_name = "MySKL1"  # Replace with your database name
 
 # Create a single connection at the start
