@@ -14,8 +14,8 @@ from db_connection import get_connection
 ## Global parameters (same ones are used in app.py)
 # Define your database parameters
 # # Get SQL connection password from user
-password = input("Enter your root user's password for the SQL connection: ").strip()
-# password = "*comp*306*st*"  # Replace with your MySQL root password
+#password = input("Enter your root user's password for the SQL connection: ").strip()
+password = "*comp*306*st*"  # Replace with your MySQL root password
 database_name = "MySKL1" # Replace with your database name
 
 
@@ -170,9 +170,8 @@ def number_of_rows_inserted(cursor, table_name):
 
     cursor.execute(check_query)
     results = cursor.fetchall()  # Fetch all rows
-    print()
     for row in results:
-        print(row)  # Print each row
+        print(f"{row[0]} rows inserted")  # Print each row
 
 def populate_tables(cursor, txt_files):
     """
@@ -213,18 +212,13 @@ def initialize_database_and_import_txts(txt_files, password, db_name):
         base_db_name (str): Base name for the database.
     """
     try:
-        connection = get_connection(password, db_name)
+        connection = get_connection(password, db_name, new=True) # new keyword creates new database
         cursor = connection.cursor()
         print("----- Connected to SQL -----")
 
         # Get a unique database name
         #db_name = get_unique_database_name(cursor, base_name=base_db_name)
-
-        # Drop database if it already exists
-        cursor.execute(f"DROP DATABASE IF EXISTS {db_name};")
         
-        # Create the database
-        cursor.execute(f"CREATE DATABASE {db_name};")
         cursor.execute(f"USE {db_name};")
         
         print(f"Database {db_name} is created and in use.")
