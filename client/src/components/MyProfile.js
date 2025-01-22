@@ -17,6 +17,11 @@ function MyProfile() {
     }
   }, [navigate]);
 
+  // Debugging the user object
+  useEffect(() => {
+    if (user) console.log("User data:", user);
+  }, [user]);
+
   // Logout on top bar
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
@@ -29,18 +34,17 @@ function MyProfile() {
   // Destructure user fields
   const {
     StudentID,
-    Stname,
+    StName, // Updated key for name
     Major,
     Gender,
     stRating,
     Level,
-    XP
+    XP,
   } = user;
 
   return (
     <div className="profile-container">
       <div className="profile-box">
-        
         {/* ========== TOP BAR ========== */}
         <div className="header-bar">
           <img src={logo} alt="Logo" className="bar-logo" />
@@ -53,7 +57,7 @@ function MyProfile() {
         {/* ========== CONTENT ========== */}
         <div className="profile-content">
           <h3>Personal Information</h3>
-          <p><strong>Name:</strong> {Stname}</p>
+          <p><strong>Name:</strong> {StName || "Not Available"}</p>
           <p><strong>Student ID:</strong> {StudentID}</p>
           <p><strong>Major:</strong> {Major}</p>
           <p><strong>Gender:</strong> {Gender}</p>

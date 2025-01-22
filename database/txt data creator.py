@@ -19,7 +19,7 @@ max_hours = 18  # Start of slot 8 -> 18.00
 fixed_start_date = datetime(2025, 2, 1)  # Fixed reference date
 slots_per_day = 8
 num_agreements = 40
-num_additional_schedules = 40 # Number of additional schedules to generate
+num_additional_schedules = 300 # Number of additional schedules to generate
 
 
 # Common Functions

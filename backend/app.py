@@ -188,12 +188,15 @@ def delete_schedule(student_id):
 def get_today_schedules():
     try:
         today = datetime.now().date()
+
+        # Query to fetch schedules for today with table image paths
         query = """
         SELECT Schedules.Date, Schedules.Slot_1, Schedules.Slot_2, Schedules.Slot_3,
                Schedules.Slot_4, Schedules.Slot_5, Schedules.Slot_6, Schedules.Slot_7, Schedules.Slot_8,
-               Students.StName
+               Students.StName, TableDetails.Image AS TableImage
         FROM Schedules
         INNER JOIN Students ON Schedules.StudentID = Students.StudentID
+        LEFT JOIN TableDetails ON Schedules.TableID = TableDetails.TableID
         WHERE Schedules.Date = %s
         """
         cursor = connection.cursor(dictionary=True)
@@ -203,9 +206,29 @@ def get_today_schedules():
 
         return jsonify({'schedules': schedules}), 200
 
+    except mysql.connector.Error as err:
+        print(f"MySQL Error: {err}")
+        return jsonify({'error': str(err)}), 500
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"General Error: {e}")
+        return jsonify({'error': str(e)}), 400
+
+@app.route('/table-details/<table_id>', methods=['GET'])
+def get_table_details(table_id):
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = "SELECT Image FROM TableDetails WHERE TableID = %s"
+        cursor.execute(query, (table_id,))
+        result = cursor.fetchone()
+        cursor.close()
+
+        if result:
+            return jsonify({result['Image']}), 200
+        else:
+            return jsonify({'error': 'Table not found'}), 404
+    except Exception as e:
         return jsonify({'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)

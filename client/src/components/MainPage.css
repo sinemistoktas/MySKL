@@ -2,143 +2,140 @@
 
 /* Full-screen background in "phone" style */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: hsl(208, 100%, 97%);
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .main-container {
-    width: 375px;
-    height: 667px; /* Fixed height for a phone-like view */
-    background-color: #add8e6;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-  }
-  
-  .main-box {
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column; /* Ensure vertical layout */
-  }
-  
-  
-  /* ===================== */
-  /*       TOP BAR         */
-  /* ===================== */
-  .header-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;  /* bar height */
-    background-color: #eeeeee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* logo on left, text in center, logout on right */
-    padding: 0 10px;  /* some horizontal padding */
-    box-sizing: border-box;
-  
-    /* Round the top corners to match phone corners */
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  /* Logo (left side) */
-  .bar-logo {
-    width: 65px;
-    height: 65px;
-    object-fit: cover;
-  }
-  
-  /* “Welcome, name!” text (middle) */
-  .header-greeting {
-    margin: 0;
-    flex: 1; /* Let it expand so it can center well if we adjust style below */
-    text-align: center;
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  /* Logout button (right side) */
-  .logout-btn {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  .logout-btn:hover {
-    background-color: #e53935;
-  }
-  
-  /* ===================== */
-  /*     MIDDLE CONTENT    */
-  /* ===================== */
-  .content {
-    margin-top: 60px; /* Push below the header bar */
-    margin-bottom: 60px; /* Push above the footer bar */
-    height: calc(100% - 120px); /* Subtract the height of the header and footer bars */
-    overflow-y: auto; /* Allow scrolling if content exceeds height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Add spacing between the boxes */
-    padding: 10px; /* Add padding for better aesthetics */
-    box-sizing: border-box; /* Include padding in height calculations */
-  }
-  
-  
-  
-  /* ===================== */
-  /*      BOTTOM BAR       */
-  /* ===================== */
-  .footer-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #eeeeee;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  
-    /* Round the bottom corners to match phone corners */
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  
-  .footer-btn {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
-  
-  .footer-btn:hover {
-    background-color: #45a049;
-  }
-  
-  /* Schedule List */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: hsl(208, 100%, 97%);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-container {
+  width: 375px;
+  height: 667px; /* Fixed height for a phone-like view */
+  background-color: #add8e6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.main-box {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; /* Ensure vertical layout */
+}
+
+/* ===================== */
+/*       TOP BAR         */
+/* ===================== */
+.header-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* bar height */
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo on left, text in center, logout on right */
+  padding: 0 10px; /* some horizontal padding */
+  box-sizing: border-box;
+
+  /* Round the top corners to match phone corners */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Logo (left side) */
+.bar-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* “Welcome, name!” text (middle) */
+.header-greeting {
+  margin: 0;
+  flex: 1; /* Let it expand so it can center well if we adjust style below */
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Logout button (right side) */
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.logout-btn:hover {
+  background-color: #e53935;
+}
+
+/* ===================== */
+/*     MIDDLE CONTENT    */
+/* ===================== */
+.content {
+  margin-top: 60px; /* Push below the header bar */
+  margin-bottom: 60px; /* Push above the footer bar */
+  height: calc(100% - 120px); /* Subtract the height of the header and footer bars */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Add spacing between the boxes */
+  padding: 10px; /* Add padding for better aesthetics */
+  box-sizing: border-box; /* Include padding in height calculations */
+}
+
+/* ===================== */
+/*      BOTTOM BAR       */
+/* ===================== */
+.footer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* Round the bottom corners to match phone corners */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.footer-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  background-color: #45a049;
+}
+
+/* Schedule List */
 .schedule-list {
   max-height: 500px; /* Limit height for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
@@ -159,6 +156,30 @@ body {
   background-color: #ffffff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Table Image */
+.table-container img.table-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Placeholder for No Table */
+.table-container .no-table {
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: #555;
 }
 
 /* Student Name */

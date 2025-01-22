@@ -11,14 +11,15 @@ function MainPage() {
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      console.log("User data:", parsedUser); // Debugging user object
+      setUser(parsedUser);
     } else {
       navigate("/");
     }
   }, [navigate]);
 
   useEffect(() => {
-    // Fetch today's schedules
     const fetchSchedules = async () => {
       try {
         const response = await fetch("http://127.0.0.1:5000/today-schedules");
@@ -36,15 +37,42 @@ function MainPage() {
 
     fetchSchedules();
   }, []);
+
   const handleMatch = (studentId) => {
     alert(`Matched with student ID: ${studentId}`);
-    // Add logic to handle the "match" action (e.g., send a request to the server)
   };
-  
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     navigate("/");
+  };
+
+  const getImageForTable = (tableImage) => {
+    if (!tableImage) {
+      return (
+        <div className="no-table">
+          <p>No Table</p>
+        </div>
+      );
+    }
+
+    try {
+      const imagePath = require(`../assets/tables/${tableImage}`);
+      return (
+        <img
+          src={imagePath}
+          alt="Table"
+          className="table-image"
+        />
+      );
+    } catch (error) {
+      console.error(`Image not found for table: ${tableImage}`, error);
+      return (
+        <div className="no-table">
+          <p>No Table</p>
+        </div>
+      );
+    }
   };
 
   if (!user) return null;
@@ -55,7 +83,7 @@ function MainPage() {
         {/* TOP BAR */}
         <div className="header-bar">
           <img src={logo} alt="App Logo" className="bar-logo" />
-          <h2 className="header-greeting">Welcome, {user.Stname}!</h2>
+          <h2 className="header-greeting">Welcome, {user.StName || "User"}!</h2>
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
@@ -70,6 +98,9 @@ function MainPage() {
                 <div className="schedule-item" key={index}>
                   <p><strong>Student Name:</strong> {schedule.StName}</p>
                   <p><strong>Slots:</strong> {Object.values(schedule).slice(1, 9).join(", ")}</p>
+                  <div className="table-container">
+                    {getImageForTable(schedule.TableImage)}
+                  </div>
                   <button className="match-btn" onClick={() => handleMatch(schedule.StudentID)}>
                     Match
                   </button>
