@@ -8,7 +8,7 @@ app = Flask(__name__, static_folder='../client/build')
 CORS(app)
 
 # Global parameters
-password = "*comp*306*st*"  # Replace with your MySQL root password
+password = "Comp306Eren"  # Replace with your MySQL root password
 database_name = "MySKL1"  # Replace with your database name
 
 # Create a single connection at the start
@@ -228,7 +228,54 @@ def get_table_details(table_id):
             return jsonify({'error': 'Table not found'}), 404
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+@app.route('/premium-emoji/<int:student_id>', methods=['GET'])
+def get_premium_emoji(student_id):
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = "SELECT Emoji FROM PremiumStudents WHERE StudentID = %s"
+        cursor.execute(query, (student_id,))
+        result = cursor.fetchone()
+        cursor.close()
 
+        if result and result['Emoji']:
+            return jsonify({'emoji': result['Emoji']}), 200
+        else:
+            return jsonify({'error': 'No emoji found for this user'}), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/create-agreement', methods=['POST'])
+def create_agreement():
+    try:
+        data = request.json
+        rator_id = data.get('ratorID')
+        ratee_id = data.get('rateeID','1')
+        table_id = data.get('TableID', '0000')  # Default to '0000' if not provided
+        agr_date = data.get('AgrDate')
+
+        if not all([rator_id, ratee_id, table_id, agr_date]):
+            return jsonify({'error': 'All fields are required!'}), 400
+
+        # Insert into Agreements table
+        query = """
+        INSERT INTO Agreements (ratorID, rateeID, TableID, AgrDate)
+        VALUES (%s, %s, %s, %s)
+        """
+        cursor = connection.cursor()
+        cursor.execute(query, (rator_id, ratee_id, table_id, agr_date))
+        connection.commit()
+        cursor.close()
+
+        return jsonify({'message': 'Agreement created successfully!'}), 201
+
+    except mysql.connector.Error as err:
+        print(f"MySQL Error: {err}")
+        return jsonify({'error': str(err)}), 500
+    except Exception as e:
+        print(f"General Error: {e}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
