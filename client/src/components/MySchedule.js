@@ -16,7 +16,7 @@ function MySchedule() {
     Slot5: 0,
     Slot6: 0,
     Slot7: 0,
-    Slot8: 0
+    Slot8: 0,
   });
 
   const timeSlots = {
@@ -27,7 +27,7 @@ function MySchedule() {
     Slot5: "14-15",
     Slot6: "15-16",
     Slot7: "16-17",
-    Slot8: "17-18"
+    Slot8: "17-18",
   };
 
   const navigate = useNavigate();
@@ -47,7 +47,21 @@ function MySchedule() {
     try {
       const response = await fetch(`http://127.0.0.1:5000/schedule/${studentId}`);
       const data = await response.json();
-      setSchedule(data);
+      if (data.hasSchedule) {
+        setSchedule(data.schedule);
+        setSlots({
+          Slot1: data.schedule.Slot_1,
+          Slot2: data.schedule.Slot_2,
+          Slot3: data.schedule.Slot_3,
+          Slot4: data.schedule.Slot_4,
+          Slot5: data.schedule.Slot_5,
+          Slot6: data.schedule.Slot_6,
+          Slot7: data.schedule.Slot_7,
+          Slot8: data.schedule.Slot_8,
+        });
+      } else {
+        setSchedule(null);
+      }
       setLoading(false);
     } catch (error) {
       console.error("Error fetching schedule:", error);
@@ -56,9 +70,9 @@ function MySchedule() {
   };
 
   const handleSlotChange = (slotKey) => {
-    setSlots(prev => ({
+    setSlots((prev) => ({
       ...prev,
-      [slotKey]: prev[slotKey] === 0 ? 1 : 0
+      [slotKey]: prev[slotKey] === 0 ? 1 : 0,
     }));
   };
 
@@ -69,19 +83,19 @@ function MySchedule() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           StudentID: user.StudentID,
-          Date: new Date().toISOString().split('T')[0],
-          Slots: Object.values(slots)
+          Date: new Date().toISOString().split("T")[0],
+          Slots: Object.values(slots),
         }),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
         alert(data.message);
         setShowForm(false);
         fetchSchedule(user.StudentID);
       } else {
-        alert(data.error || 'Failed to save schedule');
+        alert(data.error || "Failed to save schedule");
       }
     } catch (error) {
       console.error("Error creating schedule:", error);
@@ -89,26 +103,24 @@ function MySchedule() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedInUser");
-    navigate("/");
-  };
-
   const handleDeleteSchedule = async () => {
-    if (!schedule?.schedule?.ScheduleID) return;
-    
-    if (window.confirm('Are you sure you want to delete this schedule?')) {
+    if (!schedule) return;
+  
+    if (window.confirm("Are you sure you want to delete this schedule?")) {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/schedule/${schedule.schedule.ScheduleID}`, {
-          method: 'DELETE',
+        const response = await fetch(`http://127.0.0.1:5000/schedule/${user.StudentID}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ Date: new Date().toISOString().split("T")[0] }), // Pass the Date if required by backend
         });
-        
+  
         if (response.ok) {
-          alert('Schedule deleted successfully');
+          alert("Schedule deleted successfully");
           setSchedule(null);
           fetchSchedule(user.StudentID);
         } else {
-          alert('Failed to delete schedule');
+          const error = await response.json();
+          alert(error.error || "Failed to delete schedule");
         }
       } catch (error) {
         console.error("Error deleting schedule:", error);
@@ -116,28 +128,29 @@ function MySchedule() {
       }
     }
   };
+  
 
   if (loading) return <div>Loading...</div>;
 
   return (
     <div className="schedule-container">
       <div className="schedule-box">
-        {/* Top Bar */}
         <div className="header-bar">
           <img src={logo} alt="Logo" className="bar-logo" />
           <h2 className="header-title">My Schedule</h2>
-          <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          <button className="logout-btn" onClick={() => navigate("/")}>
+            Logout
+          </button>
         </div>
 
-        {/* Content */}
         <div className="schedule-content">
-          {schedule?.hasSchedule ? (
+          {schedule ? (
             <div>
               <div className="schedule-grid">
                 {Object.entries(timeSlots).map(([slot, time]) => (
-                  <div 
-                    key={slot} 
-                    className={`schedule-slot ${schedule.schedule[slot] === 1 ? 'available' : ''}`}
+                  <div
+                    key={slot}
+                    className={`schedule-slot ${slots[slot] === 1 ? "available" : ""}`}
                   >
                     <p>{time}</p>
                   </div>
@@ -152,12 +165,14 @@ function MySchedule() {
           ) : showForm ? (
             <div className="schedule-form">
               <h3>Select your library hours</h3>
-              <p className="form-subtitle">Tap the time slots when you'll be at the library</p>
+              <p className="form-subtitle">
+                Tap the time slots when you'll be at the library
+              </p>
               <div className="schedule-grid">
                 {Object.entries(timeSlots).map(([slot, time]) => (
-                  <div 
-                    key={slot} 
-                    className={`schedule-slot ${slots[slot] === 1 ? 'available' : ''}`}
+                  <div
+                    key={slot}
+                    className={`schedule-slot ${slots[slot] === 1 ? "available" : ""}`}
                     onClick={() => handleSlotChange(slot)}
                   >
                     <p>{time}</p>
@@ -165,10 +180,16 @@ function MySchedule() {
                 ))}
               </div>
               <div className="form-buttons">
-                <button onClick={() => setShowForm(false)} className="cancel-btn">
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="cancel-btn"
+                >
                   Cancel
                 </button>
-                <button onClick={handleCreateSchedule} className="create-schedule-btn">
+                <button
+                  onClick={handleCreateSchedule}
+                  className="create-schedule-btn"
+                >
                   Save
                 </button>
               </div>
@@ -176,14 +197,16 @@ function MySchedule() {
           ) : (
             <div className="no-schedule">
               <p>No schedule set for today</p>
-              <button onClick={() => setShowForm(true)} className="create-schedule-btn">
+              <button
+                onClick={() => setShowForm(true)}
+                className="create-schedule-btn"
+              >
                 Set Schedule
               </button>
             </div>
           )}
         </div>
 
-        {/* Footer Bar */}
         <div className="footer-bar">
           <button className="footer-btn" onClick={() => navigate("/main")}>
             Explore
