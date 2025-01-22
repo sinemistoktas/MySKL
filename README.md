@@ -26,7 +26,7 @@ Our project MySKL aims for people to choose their time intervals throughout the 
    ```
 
 3. **Install React application requirements**
-   Follow below steps for installing React requirements. You can read the README.md in the client folder for more information.
+   Follow below steps for installing React requirements. You can read the README client.md in the client folder for more information.
    1. Navigate to the client directory (Assuming you are in the main directory of MySKL):
       ```
       cd client
@@ -44,20 +44,25 @@ Our project MySKL aims for people to choose their time intervals throughout the 
    SET GLOBAL local_infile = 1;
    ```
 
-5. **Data Creation**
+5. **Replace password parameters**
+   In database/myskl table creator.py and backend/app.py, there is a global parameter called password at the beginning at the files. 
+   Change that with your own password of your root user for SQL connection.
+
+
+6. **Data Creation**
    Run 'myskl table creator.py' in the database folder to create csv files and their corresponding SQL tables in your database.
    ```bash
    python myskl\ table\ creator.py
    ```
 
-6. **Run the Flask Application**
+7. **Run the Flask Application**
    Start the Flask server. Inside backend folder's directory run:
    ```bash
    python app.py
    ```
    The Flask application link will be outputted to the terminal once the server is running. 
 
-7. **Running the React Application** 
+8. **Running the React Application** 
    To start the React application, in a new tab, run the following command in the client folder's directory:
    ```
    npm start
