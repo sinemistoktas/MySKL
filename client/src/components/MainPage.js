@@ -6,6 +6,9 @@ import logo from "../assets/MySKL_Logo.png";
 function MainPage() {
   const [user, setUser] = useState(null);
   const [schedules, setSchedules] = useState([]);
+  const [matchedSchedule, setMatchedSchedule] = useState(null); // Track the matched schedule
+  const [selectedRating, setSelectedRating] = useState(0); // Track the selected rating
+  const [ratingSubmitted, setRatingSubmitted] = useState(false); // Track if rating was submitted
   const [availableTable, setAvailableTable] = useState(null); 
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -56,38 +59,24 @@ function MainPage() {
   }, []);
 
   const handleMatch = async (rateeId, tableId = "0000") => {
-    const today = new Date().toISOString().split("T")[0]; // Format current date as YYYY-MM-DD
-    
-   
+    const today = new Date().toISOString().split("T")[0];
     try {
       const response = await fetch("http://127.0.0.1:5000/create-agreement", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ratorID: user.StudentID, // The logged-in user's ID
-          rateeID: rateeId,        // The matched user's ID
-          TableID: tableId,        // Table ID (default to "0000" if not provided)
-          AgrDate: today,          // Agreement date
+          ratorID: user.StudentID,
+          rateeID: rateeId,
+          TableID: tableId,
+          AgrDate: today,
         }),
       });
-      console.log("Creating agreement with:", {
-        ratorID: user.StudentID,
-        rateeID: rateeId,
-        TableID: tableId,
-        AgrDate: today,
-      });
-      
-  
+
       const result = await response.json();
-  
       if (response.ok) {
         alert("Agreement created successfully!");
-  
-        // Filter and show only the matched schedule
-        const matchedSchedule = schedules.find(
-          (schedule) => schedule.StudentID === rateeId
-        );
-        setSchedules([matchedSchedule]); // Update the schedules state to show only the matched schedule
+        const matched = schedules.find((schedule) => schedule.StudentID === rateeId);
+        setMatchedSchedule(matched); // Set the matched schedule
       } else {
         alert(result.error || "Failed to create agreement.");
       }
@@ -96,39 +85,20 @@ function MainPage() {
       alert("An error occurred. Please try again.");
     }
   };
-  
+
+  const handleSubmitRating = () => {
+    if (selectedRating === 0) {
+      alert("Please select a rating before submitting.");
+      return;
+    }
+
+    alert("Rating submitted successfully!");
+    setRatingSubmitted(true); // Mark rating as submitted
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     navigate("/");
-  };
-
-  const getImageForTable = (tableImage) => {
-    if (!tableImage) {
-      return (
-        <div className="no-table">
-          <p>No Table</p>
-        </div>
-      );
-    }
-
-    try {
-      const imagePath = require(`../assets/tables/${tableImage}`);
-      return (
-        <img
-          src={imagePath}
-          alt="Table"
-          className="table-image"
-        />
-      );
-    } catch (error) {
-      console.error(`Image not found for table: ${tableImage}`, error);
-      return (
-        <div className="no-table">
-          <p>No Table</p>
-        </div>
-      );
-    }
   };
 
   if (!user) return null;
@@ -171,47 +141,76 @@ function MainPage() {
 
         {/* MIDDLE CONTENT */}
         <div className="content">
-          <h3>{schedules.length === 1 ? "Matched Schedule" : "Today's Schedules"}</h3>
-          <div className="schedule-list">
-            {schedules.length > 0 ? (
-              schedules.map((schedule, index) => (
-                
-                <div className="schedule-item" key={index}>
-                  <p><strong>Student Name:</strong> {schedule.StName}</p>
-                  <p><strong>Slots:</strong> {Object.values(schedule).slice(1, 9).join(", ")}</p>
-                  <div className="table-container">
-                    {getImageForTable(schedule.TableImage)}
-                  </div>
-                  
-                    <button
-                    className="match-btn"
-                    onClick={() => handleMatch(schedule.StudentID, schedule.TableID || "0000")}
+          {ratingSubmitted ? ( // Check if rating has been submitted
+            <div className="success-message">
+              <h3>You matched and rated!</h3>
+            </div>
+          ) : matchedSchedule ? (
+            <div className="schedule-item">
+              <p>
+                <strong>Student Name:</strong> {matchedSchedule.StName}
+              </p>
+              <p>
+                <strong>Slots:</strong>{" "}
+                {Object.values(matchedSchedule).slice(1, 9).join(", ")}
+              </p>
+              <div className="table-container">
+                {/* Show the table image or fallback */}
+                <p>Table ID: {matchedSchedule.TableID}</p>
+              </div>
+              <div className="rating-section">
+                <h4>Rate this agreement:</h4>
+                {[1, 2, 3, 4, 5].map((rating) => (
+                  <button
+                    key={rating}
+                    className={`rating-btn ${
+                      selectedRating === rating ? "selected" : ""
+                    }`}
+                    onClick={() => setSelectedRating(rating)}
                   >
-                    Match
+                    {rating}
                   </button>
-                 
-                </div>
-              ))
-            ) : (
-              <p>No schedules for today.</p>
-            )}
-          </div>
+                ))}
+                <button
+                  className="submit-rating-btn"
+                  onClick={handleSubmitRating}
+                >
+                  Submit Rating
+                </button>
+              </div>
+            </div>
+          ) : schedules.length > 0 ? (
+            schedules.map((schedule, index) => (
+              <div className="schedule-item" key={index}>
+                <p>
+                  <strong>Student Name:</strong> {schedule.StName}
+                </p>
+                <p>
+                  <strong>Slots:</strong>{" "}
+                  {Object.values(schedule).slice(1, 9).join(", ")}
+                </p>
+                <button
+                  className="match-btn"
+                  onClick={() =>
+                    handleMatch(schedule.StudentID, schedule.TableID || "0000")
+                  }
+                >
+                  Match
+                </button>
+              </div>
+            ))
+          ) : (
+            <p>No schedules for today.</p>
+          )}
         </div>
-
 
         {/* BOTTOM BAR */}
         <div className="footer-bar">
           <button className="footer-btn">Explore</button>
-          <button 
-            className="footer-btn"
-            onClick={() => navigate("/schedule")}
-          >
+          <button className="footer-btn" onClick={() => navigate("/schedule")}>
             MySchedule
           </button>
-          <button 
-            className="footer-btn"
-            onClick={() => navigate("/myprofile")}
-          >
+          <button className="footer-btn" onClick={() => navigate("/myprofile")}>
             MyProfile
           </button>
         </div>

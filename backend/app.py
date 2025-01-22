@@ -245,14 +245,38 @@ def get_premium_emoji(student_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/matched-agreement/<int:student_id>', methods=['GET'])
+def fetch_matched_agreement(student_id):
+    try:
+        connection = get_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        query = """
+        SELECT s.*, a.TableID 
+        FROM Agreement a
+        JOIN Schedule s ON (s.StudentID = a.rateeID AND s.TableID = a.TableID)
+        WHERE a.ratorID = %s AND DATE(a.AgrDate) = CURDATE()
+        """
+        cursor.execute(query, (student_id,))
+        matched_agreement = cursor.fetchone()
+
+        cursor.close()
+        connection.close()
+
+        if matched_agreement:
+            return jsonify({'matchedSchedule': matched_agreement}), 200
+        else:
+            return jsonify({'matchedSchedule': None}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/create-agreement', methods=['POST'])
 def create_agreement():
     try:
         data = request.json
         rator_id = data.get('ratorID')
-        ratee_id = data.get('rateeID','1')
-        table_id = data.get('TableID', '0000')  # Default to '0000' if not provided
+        ratee_id = data.get('rateeID','338')
+        table_id = data.get('TableID', '0129')  # Default to '0000' if not provided
         agr_date = data.get('AgrDate')
 
         if not all([rator_id, ratee_id, table_id, agr_date]):
