@@ -8,18 +8,16 @@ from db_connection import get_connection
 app = Flask(__name__, static_folder='../client/build')
 CORS(app)
 
-database_name = 'MYSKL2'
+## Global parameters
+# Define your database parameters
+# # Get SQL connection password from user
+password = input("Enter your root user's password for the SQL connection: ").strip()
+#password = "*comp*306*st*"  # Replace with your MySQL root password
+database_name = "MYSKL2" # Replace with your database name
 
-connection = get_connection(database_name)
-
-# def get_connection():
-#     connection = mysql.connector.connect(
-#         host="localhost",
-#         user="root",
-#         password="Comp306Eren",  # Replace with your MySQL password
-#         database="MySKL1"  # Replace with your database name
-#     )
-#     return connection
+# Create a single connection at the start
+connection = get_connection(password, database_name)
+print("----- Connected to SQL -----")
 
 # Serve the React app
 @app.route('/', methods=['GET'])
@@ -40,17 +38,16 @@ def login_student():
         if not student_id or not password:
             return jsonify({'error': 'StudentID and Password are required!'}), 400
 
-        # Connect to the database
-        connection = get_connection()
+        # Reuse the existing connection
         cursor = connection.cursor(dictionary=True)
 
         # Query to check if the student exists and password matches
-        query = "SELECT * FROM Student WHERE StudentID = %s AND Password = %s"
+        query = "SELECT * FROM Students WHERE StudentID = %s AND Password = %s"
         cursor.execute(query, (student_id, password))
         result = cursor.fetchone()
 
         cursor.close()
-        connection.close()
+        # connection.close()
 
         if result:
             return jsonify({'message': 'Login successful!', 'student': result}), 200
@@ -82,13 +79,15 @@ def register_student():
         if not all([student_id, name, major, sex, password]):
             return jsonify({'error': 'All fields are required!'}), 400
 
-        # Connect to MySQL
-        connection = get_connection()
+        # # Connect to MySQL
+        # connection = get_connection()
+
+        # Reuse the existing connection
         cursor = connection.cursor()
 
         # Insert into the `Student` table
         student_query = """
-        INSERT INTO Student (StudentID, S_name, Major, Sex, userRating, Level, xp, Password)
+        INSERT INTO Students (StudentID, S_name, Major, Sex, userRating, Level, xp, Password)
         VALUES (%s, %s, %s, %s, NULL, NULL, NULL, %s)
         """
         cursor.execute(student_query, (student_id, name, major, sex, password))
@@ -96,25 +95,25 @@ def register_student():
         # Insert into the appropriate table based on `is_premium`
         if is_premium:
             premium_query = """
-            INSERT INTO PremiumStudent (StudentID, Emoji)
+            INSERT INTO PremiumStudents (StudentID, Emoji)
             VALUES (%s, %s)
             """
             cursor.execute(premium_query, (student_id, emoji))
             student_type = "PremiumStudent"
         else:
             standard_query = """
-            INSERT INTO StandardStudent (StudentID)
+            INSERT INTO StandardStudents (StudentID)
             VALUES (%s)
             """
             cursor.execute(standard_query, (student_id,))
             student_type = "StandardStudent"
 
-        # Commit the transaction
-        connection.commit()
+        # # Commit the transaction, autocommit is open so I uncommented this
+        # connection.commit()
 
         # Close the connection
         cursor.close()
-        connection.close()
+        # connection.close()
 
         # Respond with success
         return jsonify({'message': f'{student_type} registered successfully!'}), 201
@@ -129,7 +128,8 @@ def register_student():
 @app.route('/schedule/<student_id>', methods=['GET'])
 def get_schedule(student_id):
     try:
-        connection = get_connection()
+        # connection = get_connection()
+        # Reuse the existing connection
         cursor = connection.cursor(dictionary=True)
         
         # Check if student has a schedule
@@ -143,7 +143,7 @@ def get_schedule(student_id):
         result = cursor.fetchone()
         
         cursor.close()
-        connection.close()
+        # connection.close()
         
         if result:
             return jsonify({'hasSchedule': True, 'schedule': result}), 200
@@ -167,7 +167,8 @@ def create_schedule():
         date_str = date.replace('-', '')
         schedule_id = f"{date_str}{student_id}"  # Keep as string, don't convert to int
         
-        connection = get_connection()
+        # connection = get_connection()
+        # Reuse the existing connection
         cursor = connection.cursor()
 
         # First check if a schedule already exists for this student and date
@@ -203,9 +204,9 @@ def create_schedule():
             cursor.execute(slot_query, (schedule_id, *slots))
             message = 'Schedule created successfully'
         
-        connection.commit()
+        # connection.commit()
         cursor.close()
-        connection.close()
+        # connection.close()
         
         return jsonify({'message': message, 'scheduleId': schedule_id}), 201
         
@@ -216,7 +217,8 @@ def create_schedule():
 @app.route('/schedule/<schedule_id>', methods=['DELETE'])
 def delete_schedule(schedule_id):
     try:
-        connection = get_connection()
+        # connection = get_connection()
+        # Reuse the existing connection
         cursor = connection.cursor()
         
         # Delete from SlotStatus first (child table)
@@ -227,9 +229,9 @@ def delete_schedule(schedule_id):
         delete_schedule_query = "DELETE FROM HasSchedule WHERE ScheduleID = %s"
         cursor.execute(delete_schedule_query, (schedule_id,))
         
-        connection.commit()
+        # connection.commit()
         cursor.close()
-        connection.close()
+        # connection.close()
         
         return jsonify({'message': 'Schedule deleted successfully'}), 200
         

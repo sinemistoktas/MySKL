@@ -11,7 +11,13 @@ sys.path.append(backend_dir)
 # Import the db_connection function
 from db_connection import get_connection
 
-database_name = "MYSKL2"
+## Global parameters (same ones are used in app.py)
+# Define your database parameters
+# # Get SQL connection password from user
+password = input("Enter your root user's password for the SQL connection: ").strip()
+# password = "*comp*306*st*"  # Replace with your MySQL root password
+database_name = "MYSKL2" # Replace with your database name
+
 
 def generate_txt_files(data_creator_script):
     """
@@ -25,6 +31,7 @@ def generate_txt_files(data_creator_script):
     script_path = os.path.join(script_dir, data_creator_script)  # Full path to the script
 
     print(f"Running {script_path}...")
+    print()
     subprocess.run(["python", script_path], check=True)
     print("----- All TXT files have been created -----")
     print()
@@ -167,7 +174,7 @@ def number_of_rows_inserted(cursor, table_name):
     for row in results:
         print(row)  # Print each row
 
-def populate_tables(connection, cursor, txt_files):
+def populate_tables(cursor, txt_files):
     """
     Populate tables with data from the TXT files.
 
@@ -183,7 +190,6 @@ def populate_tables(connection, cursor, txt_files):
     """
     values = ('0000', 0, 0, 'dummy', False) # Define the values to insert
     cursor.execute(dummy_query, values) # Execute the query with values
-    connection.commit() # Commit the transaction
 
     # Directory where the database is located
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -198,7 +204,7 @@ def populate_tables(connection, cursor, txt_files):
         print(f"Data inserted into table {table_name}.")
         number_of_rows_inserted(cursor, table_name)
 
-def initialize_database_and_import_txts(txt_files, db_name):
+def initialize_database_and_import_txts(txt_files, password, db_name):
     """
     Create a new unique database using db_connection, create tables, and populate them.
 
@@ -207,8 +213,9 @@ def initialize_database_and_import_txts(txt_files, db_name):
         base_db_name (str): Base name for the database.
     """
     try:
-        connection = get_connection()
+        connection = get_connection(password, db_name)
         cursor = connection.cursor()
+        print("----- Connected to SQL -----")
 
         # Get a unique database name
         #db_name = get_unique_database_name(cursor, base_name=base_db_name)
@@ -224,9 +231,8 @@ def initialize_database_and_import_txts(txt_files, db_name):
         
         # Create tables and populate them
         create_tables(cursor)
-        populate_tables(connection, cursor, txt_files)
+        populate_tables(cursor, txt_files)
         
-        connection.commit()
         print("All tables populated successfully.")
     except Exception as e:
         print(f"Error: {e}")
@@ -253,9 +259,8 @@ table_names_txt_files = {
 if __name__ == "__main__":
     print()
     # Generate TXT files
-
     generate_txt_files("txt data creator.py")
     
     # Initialize database and import TXTs
-    initialize_database_and_import_txts(table_names_txt_files, database_name)
+    initialize_database_and_import_txts(table_names_txt_files, password, database_name)
 
