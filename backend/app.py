@@ -11,8 +11,8 @@ CORS(app)
 ## Global parameters
 # Define your database parameters
 # # Get SQL connection password from user
-password = input("Enter your root user's password for the SQL connection: ").strip()
-#password = "*comp*306*st*"  # Replace with your MySQL root password
+#password = input("Enter your root user's password for the SQL connection: ").strip()
+password = "*comp*306*st*"  # Replace with your MySQL root password
 database_name = "MYSKL2" # Replace with your database name
 
 # Create a single connection at the start
@@ -68,9 +68,9 @@ def register_student():
         # Get student data from the request
         data = request.json
         student_id = data.get('StudentID')
-        name = data.get('S_name')
+        name = data.get('Stname')
         major = data.get('Major')
-        sex = data.get('Sex')
+        sex = data.get('Gender')
         password = data.get('Password')
         is_premium = data.get('isPremium', False)  # Indicates if the student is premium
         emoji = data.get('Emoji', '')  # Emoji for premium students (optional)
@@ -87,8 +87,8 @@ def register_student():
 
         # Insert into the `Student` table
         student_query = """
-        INSERT INTO Students (StudentID, S_name, Major, Sex, userRating, Level, xp, Password)
-        VALUES (%s, %s, %s, %s, NULL, NULL, NULL, %s)
+        INSERT INTO Students (StudentID, Stname, Major, Gender, stRating, Level, XP, Password)
+        VALUES (%s, %s, %s, %s, 0.0, 1, 0, %s)
         """
         cursor.execute(student_query, (student_id, name, major, sex, password))
 
@@ -134,10 +134,9 @@ def get_schedule(student_id):
         
         # Check if student has a schedule
         query = """
-        SELECT h.*, s.*
-        FROM HasSchedule h
-        LEFT JOIN SlotStatus s ON h.ScheduleID = s.ScheduleID
-        WHERE h.StudentID = %s
+        SELECT *
+        FROM Schedules
+        WHERE StudentID = %s
         """
         cursor.execute(query, (student_id,))
         result = cursor.fetchone()
@@ -238,6 +237,72 @@ def delete_schedule(schedule_id):
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({'error': str(e)}), 500
+    
+@app.route('/alerts', methods=['POST'])
+def create_alert(): # create alert
+    try:
+        data = request.json
+        sender_id = data.get('senderID')
+        alert_time = data.get('AlertTime')
+
+        if not sender_id or not alert_time:
+            return jsonify({'error': 'SenderID and AlertTime are required!'}), 400
+
+        # Verify the sender is a PremiumStudent
+        cursor = connection.cursor()
+        premium_check_query = "SELECT StudentID FROM PremiumStudents WHERE StudentID = %s"
+        cursor.execute(premium_check_query, (sender_id,))
+        is_premium = cursor.fetchone()
+
+        if not is_premium:
+            return jsonify({'error': 'Only PremiumStudents can send alerts.'}), 403
+
+        # Insert the alert into the Alarms table
+        insert_query = "INSERT INTO Alarms (senderID, AlertTime) VALUES (%s, %s)"
+        cursor.execute(insert_query, (sender_id, alert_time))
+
+        cursor.close()
+        return jsonify({'message': 'Alert created successfully!'}), 201
+
+    except mysql.connector.Error as err:
+        print(f"MySQL Error: {err}")
+        return jsonify({'error': str(err)}), 500
+    except Exception as e:
+        print(f"General Error: {e}")
+        return jsonify({'error': str(e)}), 400
+
+@app.route('/alerts', methods=['GET']) 
+def get_alerts(): # fetch alerts
+    try: 
+        student_id = request.args.get('studentID')
+
+        if not student_id:
+            return jsonify({'error': 'StudentID is required to fetch alerts!'}), 400
+
+        # Verify the student is a PremiumStudent
+        cursor = connection.cursor(dictionary=True)
+        premium_check_query = "SELECT StudentID FROM PremiumStudents WHERE StudentID = %s"
+        cursor.execute(premium_check_query, (student_id,))
+        is_premium = cursor.fetchone()
+
+        if not is_premium:
+            return jsonify({'error': 'Only PremiumStudents can view alerts.'}), 403
+
+        # Fetch alerts
+        fetch_query = "SELECT * FROM Alarms ORDER BY AlertTime DESC"
+        cursor.execute(fetch_query)
+        alerts = cursor.fetchall()
+
+        cursor.close()
+        return jsonify({'alerts': alerts}), 200
+
+    except mysql.connector.Error as err:
+        print(f"MySQL Error: {err}")
+        return jsonify({'error': str(err)}), 500
+    except Exception as e:
+        print(f"General Error: {e}")
+        return jsonify({'error': str(e)}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)

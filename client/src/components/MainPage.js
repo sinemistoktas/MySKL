@@ -30,7 +30,7 @@ function MainPage() {
         {/* TOP BAR */}
         <div className="header-bar">
           <img src={logo} alt="App Logo" className="bar-logo" />
-          <h2 className="header-greeting">Welcome, {user.S_name}!</h2>
+          <h2 className="header-greeting">Welcome, {user.Stname}!</h2>
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>

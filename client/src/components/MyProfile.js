@@ -29,12 +29,12 @@ function MyProfile() {
   // Destructure user fields
   const {
     StudentID,
-    S_name,
+    Stname,
     Major,
-    Sex,
-    userRating,
+    Gender,
+    stRating,
     Level,
-    xp
+    XP
   } = user;
 
   return (
@@ -53,13 +53,13 @@ function MyProfile() {
         {/* ========== CONTENT ========== */}
         <div className="profile-content">
           <h3>Personal Information</h3>
-          <p><strong>Name:</strong> {S_name}</p>
+          <p><strong>Name:</strong> {Stname}</p>
           <p><strong>Student ID:</strong> {StudentID}</p>
           <p><strong>Major:</strong> {Major}</p>
-          <p><strong>Sex:</strong> {Sex}</p>
-          <p><strong>Rating:</strong> {userRating ?? "N/A"}</p>
+          <p><strong>Gender:</strong> {Gender}</p>
+          <p><strong>Rating:</strong> {stRating ?? "N/A"}</p>
           <p><strong>Level:</strong> {Level ?? "N/A"}</p>
-          <p><strong>XP:</strong> {xp ?? "N/A"}</p>
+          <p><strong>XP:</strong> {XP ?? "N/A"}</p>
         </div>
 
         {/* ========== FOOTER BAR ========== */}
