@@ -61,7 +61,7 @@ function MyProfile() {
 
   if (!user) return null;
 
-  const { StudentID, StName, Major, Gender, stRating, Level, XP } = user;
+  const { StudentID, StName, Major, Gender, StRating, Level, XP } = user;
 
   return (
     <div className="profile-container">
@@ -87,7 +87,7 @@ function MyProfile() {
           <p><strong>Student ID:</strong> {StudentID}</p>
           <p><strong>Major:</strong> {Major}</p>
           <p><strong>Gender:</strong> {Gender}</p>
-          <p><strong>Rating:</strong> {stRating ?? "N/A"}</p>
+          <p><strong>Rating:</strong> {StRating ?? "N/A"}</p>
           <p><strong>Level:</strong> {Level ?? "N/A"}</p>
           <p><strong>XP:</strong> {XP ?? "N/A"}</p>
         </div>
