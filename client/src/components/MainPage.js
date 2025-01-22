@@ -6,6 +6,8 @@ import logo from "../assets/MySKL_Logo.png";
 function MainPage() {
   const [user, setUser] = useState(null);
   const [schedules, setSchedules] = useState([]);
+  const [availableTable, setAvailableTable] = useState(null); 
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +35,24 @@ function MainPage() {
       }
     };
 
+    const fetchAvailableTable = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/available-table");
+        const result = await response.json();
+
+        if (response.ok) {
+          setAvailableTable(result.table);
+        } else {
+          setError(result.message || "No available table found.");
+        }
+      } catch (err) {
+        console.error("Error fetching available table:", err);
+        setError("An error occurred while fetching available table.");
+      }
+    };
+
     fetchSchedules();
+    fetchAvailableTable();
   }, []);
 
   const handleMatch = async (rateeId, tableId = "0000") => {
@@ -120,10 +139,34 @@ function MainPage() {
         {/* TOP BAR */}
         <div className="header-bar">
           <img src={logo} alt="App Logo" className="bar-logo" />
-          <h2 className="header-greeting">Welcome, {user.Stname}!</h2>
+          <h2 className="header-greeting">Welcome, {user.StName}!</h2>
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
+        </div>
+
+        {/* HEADER SECTION */}
+      <div className="page-header">
+        <h1>Library Desk Availability</h1>
+        <p>Find the earliest available desk or explore today's schedules.</p>
+      </div>
+
+        {/* EARLIEST AVAILABLE TABLE */}
+        <div className="available-table-section">
+          <h3>Earliest Available Table</h3>
+          {error && <p className="error-message">{error}</p>}
+          {availableTable ? (
+            <div className="available-table">
+              <p><strong>Table Number:</strong> {availableTable.TableNum}</p>
+              <p><strong>Floor:</strong> {availableTable.FloorNumber}</p>
+              <p><strong>Has Plug:</strong> {availableTable.HasPlug ? "Yes" : "No"}</p>
+              <div className="table-container">
+                {getImageForTable(availableTable.Image)}
+              </div>
+            </div>
+          ) : (
+            !error && <p>Loading available table...</p>
+          )}
         </div>
 
         {/* MIDDLE CONTENT */}
