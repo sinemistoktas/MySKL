@@ -4,14 +4,14 @@ channels:
 dependencies:
   - python>=3.5
   - pip
+  - pandas
   - mysql
+  - mysql-connector-python
   - flask
   - flask-cors
   - flask-restful
   - flask-wtf
-  - mysql-connector-python
   - flask-sqlalchemy
-  - pandas
   - gunicorn
   - requests
-  - npm
+  - nodejs

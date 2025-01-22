@@ -11,10 +11,9 @@ This project is a full-stack application that uses React for the frontend and Fl
 
 ### Installation
 
-1. Navigate to the client directory:
-
+1. Navigate to the client directory (Assuming you are in the main directory of MySKL):
    ```
-   cd my-react-flask-app/client
+   cd client
    ```
 
 2. Install the dependencies:
@@ -49,10 +48,6 @@ npm run build
 ```
 
 This will create an optimized build of the app in the `build` folder.
-
-## Contributing
-
-Feel free to submit issues or pull requests for any improvements or bug fixes.
 
 ## License
 
