@@ -9,8 +9,6 @@ function MainPage() {
   const [matchedSchedule, setMatchedSchedule] = useState(null); // Track the matched schedule
   const [selectedRating, setSelectedRating] = useState(0); // Track the selected rating
   const [ratingSubmitted, setRatingSubmitted] = useState(false); // Track if rating was submitted
-  const [availableTable, setAvailableTable] = useState(null); 
-  const [error, setError] = useState(null);
   const [highRatedCount, setHighRatedCount] = useState(0); // Count of high-rated schedules
   const navigate = useNavigate();
 
@@ -54,26 +52,8 @@ function MainPage() {
       }
     };
 
-    const fetchAvailableTable = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:5000/available-table");
-        const result = await response.json();
-
-        if (response.ok) {
-          setAvailableTable(result.table);
-        } else {
-          setError(result.message || "No available table found.");
-        }
-      } catch (err) {
-        console.error("Error fetching available table:", err);
-        setError("An error occurred while fetching available table.");
-      }
-    };
-
     fetchSchedules();
     fetchHighRatedSchedules();
-    fetchAvailableTable();
-    
   }, []);
 
   const handleMatch = async (rateeId, tableId = "0000") => {
@@ -149,42 +129,18 @@ function MainPage() {
         {/* TOP BAR */}
         <div className="header-bar">
           <img src={logo} alt="App Logo" className="bar-logo" />
-          <h2 className="header-greeting">Welcome, {user.StName}!</h2>
+          <h2 className="header-greeting">Welcome, {user.Stname}!</h2>
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
         </div>
 
-        {/* HEADER SECTION */}
-      <div className="page-header">
-        <h1>Library Desk Availability</h1>
-        <p>Find the earliest available desk or explore today's schedules.</p>
-      </div>
-
-        {/* EARLIEST AVAILABLE TABLE */}
-        <div className="available-table-section">
-          <h3>Earliest Available Table</h3>
-          {error && <p className="error-message">{error}</p>}
-          {availableTable ? (
-            <div className="available-table">
-              <p><strong>Table Number:</strong> {availableTable.TableNum}</p>
-              <p><strong>Floor:</strong> {availableTable.FloorNumber}</p>
-              <p><strong>Has Plug:</strong> {availableTable.HasPlug ? "Yes" : "No"}</p>
-              <div className="table-container">
-                {getImageForTable(availableTable.Image)}
-              </div>
-            </div>
-          ) : (
-            !error && <p>Loading available table...</p>
-          )}
-        </div>
-
         {/* MIDDLE CONTENT */}
         <div className="content">
           <div className="high-rated-info">
-            <h3>Number of schedules with a rating > 3: {highRatedCount}</h3>
+            <h3>Number of schedules with a rating {">"} 3: {highRatedCount}</h3>
           </div>
-          {ratingSubmitted ? ( 
+          {ratingSubmitted ? (
             <div className="success-message">
               <h3>You matched and rated!</h3>
             </div>
@@ -231,6 +187,9 @@ function MainPage() {
                   <strong>Slots:</strong>{" "}
                   {Object.values(schedule).slice(1, 9).join(", ")}
                 </p>
+                <div className="table-container">
+                  {getImageForTable(schedule.TableImage)}
+                </div>
                 <button
                   className="match-btn"
                   onClick={() =>
