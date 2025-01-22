@@ -16,7 +16,7 @@ from db_connection import get_connection
 # # Get SQL connection password from user
 password = input("Enter your root user's password for the SQL connection: ").strip()
 # password = "*comp*306*st*"  # Replace with your MySQL root password
-database_name = "MYSKL2" # Replace with your database name
+database_name = "MySKL1" # Replace with your database name
 
 
 def generate_txt_files(data_creator_script):

@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory, jsonify, request
 import mysql.connector
 from flask_cors import CORS
-
+from datetime import datetime
 # Database connection function
 from db_connection import get_connection
 
@@ -12,8 +12,8 @@ CORS(app)
 # Define your database parameters
 # # Get SQL connection password from user
 #password = input("Enter your root user's password for the SQL connection: ").strip()
-password = "*comp*306*st*"  # Replace with your MySQL root password
-database_name = "MYSKL2" # Replace with your database name
+password = "Comp306Eren"  # Replace with your MySQL root password
+database_name = "MySKL1" # Replace with your database name
 
 # Create a single connection at the start
 connection = get_connection(password, database_name)
@@ -295,6 +295,35 @@ def get_alerts(): # fetch alerts
 
         cursor.close()
         return jsonify({'alerts': alerts}), 200
+
+    except mysql.connector.Error as err:
+        print(f"MySQL Error: {err}")
+        return jsonify({'error': str(err)}), 500
+    except Exception as e:
+        print(f"General Error: {e}")
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/today-schedules', methods=['GET'])
+def get_today_schedules():
+    try:
+        today = datetime.now().date()
+
+        # Query to fetch schedules for today with student names
+        query = """
+        SELECT Schedules.Date, Schedules.Slot_1, Schedules.Slot_2, Schedules.Slot_3,
+               Schedules.Slot_4, Schedules.Slot_5, Schedules.Slot_6, Schedules.Slot_7, Schedules.Slot_8,
+               Students.StName
+        FROM Schedules
+        INNER JOIN Students ON Schedules.StudentID = Students.StudentID
+        WHERE Schedules.Date = %s
+        """
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute(query, (today,))
+        schedules = cursor.fetchall()
+        cursor.close()
+
+        return jsonify({'schedules': schedules}), 200
 
     except mysql.connector.Error as err:
         print(f"MySQL Error: {err}")
