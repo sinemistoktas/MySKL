@@ -90,7 +90,6 @@ function MyProfile() {
           <p><strong>Rating:</strong> {StRating ?? "N/A"}</p>
           <p><strong>Level:</strong> {Level ?? "N/A"}</p>
           <p><strong>XP:</strong> {XP ?? "N/A"}</p>
-          <p><strong>User Type:</strong> {UserType || "Standard"}</p>
         </div>
 
         {/* ========== FOOTER BAR ========== */}
