@@ -11,9 +11,7 @@ function MainPage() {
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      console.log("User data:", parsedUser); // Debugging user object
-      setUser(parsedUser);
+      setUser(JSON.parse(storedUser));
     } else {
       navigate("/");
     }
@@ -38,9 +36,48 @@ function MainPage() {
     fetchSchedules();
   }, []);
 
-  const handleMatch = (studentId) => {
-    alert(`Matched with student ID: ${studentId}`);
+  const handleMatch = async (rateeId, tableId = "0000") => {
+    const today = new Date().toISOString().split("T")[0]; // Format current date as YYYY-MM-DD
+    
+   
+    try {
+      const response = await fetch("http://127.0.0.1:5000/create-agreement", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ratorID: user.StudentID, // The logged-in user's ID
+          rateeID: rateeId,        // The matched user's ID
+          TableID: tableId,        // Table ID (default to "0000" if not provided)
+          AgrDate: today,          // Agreement date
+        }),
+      });
+      console.log("Creating agreement with:", {
+        ratorID: user.StudentID,
+        rateeID: rateeId,
+        TableID: tableId,
+        AgrDate: today,
+      });
+      
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert("Agreement created successfully!");
+  
+        // Filter and show only the matched schedule
+        const matchedSchedule = schedules.find(
+          (schedule) => schedule.StudentID === rateeId
+        );
+        setSchedules([matchedSchedule]); // Update the schedules state to show only the matched schedule
+      } else {
+        alert(result.error || "Failed to create agreement.");
+      }
+    } catch (err) {
+      console.error("Error creating agreement:", err);
+      alert("An error occurred. Please try again.");
+    }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
@@ -83,7 +120,7 @@ function MainPage() {
         {/* TOP BAR */}
         <div className="header-bar">
           <img src={logo} alt="App Logo" className="bar-logo" />
-          <h2 className="header-greeting">Welcome, {user.StName || "User"}!</h2>
+          <h2 className="header-greeting">Welcome, {user.Stname}!</h2>
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>
@@ -91,19 +128,25 @@ function MainPage() {
 
         {/* MIDDLE CONTENT */}
         <div className="content">
-          <h3>Today's Schedules</h3>
+          <h3>{schedules.length === 1 ? "Matched Schedule" : "Today's Schedules"}</h3>
           <div className="schedule-list">
             {schedules.length > 0 ? (
               schedules.map((schedule, index) => (
+                
                 <div className="schedule-item" key={index}>
                   <p><strong>Student Name:</strong> {schedule.StName}</p>
                   <p><strong>Slots:</strong> {Object.values(schedule).slice(1, 9).join(", ")}</p>
                   <div className="table-container">
                     {getImageForTable(schedule.TableImage)}
                   </div>
-                  <button className="match-btn" onClick={() => handleMatch(schedule.StudentID)}>
+                  
+                    <button
+                    className="match-btn"
+                    onClick={() => handleMatch(schedule.StudentID, schedule.TableID || "0000")}
+                  >
                     Match
                   </button>
+                 
                 </div>
               ))
             ) : (
@@ -111,6 +154,7 @@ function MainPage() {
             )}
           </div>
         </div>
+
 
         {/* BOTTOM BAR */}
         <div className="footer-bar">

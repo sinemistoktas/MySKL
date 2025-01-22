@@ -13,13 +13,13 @@ random.seed(14)
 num_students = 500
 
 num_alarms = 80
-date_range_days = 30 # Past 30 days
+date_range_days = 7 # Past 7 days
 min_hours = 10  # Start of slot 1 -> 10.00 
 max_hours = 18  # Start of slot 8 -> 18.00 
-fixed_start_date = datetime(2025, 2, 1)  # Fixed reference date
+fixed_start_date = datetime(2025, 1, 24)  # Fixed reference date
 slots_per_day = 8
 num_agreements = 40
-num_additional_schedules = 300 # Number of additional schedules to generate
+num_additional_schedules = 400 # Number of additional schedules to generate
 
 
 # Common Functions
