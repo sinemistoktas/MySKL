@@ -197,3 +197,71 @@ body {
   color: #555;
   font-size: 0.85rem;
 }
+
+/* General styles for the rating section */
+.rating-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.rating-section h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Rating button styles */
+.rating-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff; /* Default color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rating-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.rating-btn.selected {
+  background-color: #28a745; /* Green when selected */
+  font-weight: bold;
+  color: #fff;
+  transform: scale(1.1); /* Slightly larger when selected */
+}
+
+/* Submit rating button styles */
+.submit-rating-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745; /* Green for submit button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-rating-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Success message styles */
+.success-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
